@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+    <title>Payment Details</title>  
+</head>
+<body class="paymentBody">
+    <div class="headerBar">
+        <img src="img/logo.png" alt="">
+    </div>
+    
+      <div class="paymentHeader">
+          <p>Review & Pay</p> 
+      </div>  
+      <div class="flightDepart">
+        <p class="depart">Depart</p>
+        <p class="destination">Barcelona to Rome</p>
+        <p class="date">April 21, 2021</p>
+      </div>
+      <table>
+        <!-- <caption>Statement Summary</caption> -->
+        <thead>
+          <tr>
+            <th scope="col">Flight</th>
+            <th scope="col">Depart</th>
+            <th scope="col">Arrive</th>
+            <th scope="col">Travel Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Account">Flight 2134</td>
+            <td data-label="Due Date">04/01/2016</td>
+            <td data-label="Amount">$1,190</td>
+            <td data-label="Period">03/01/2016 - 03/31/2016</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <div class="contain">
+        <div id="Checkout" class="inline">
+            <h1>Pay Invoice</h1>
+            <div class="card-row">
+                <span class="visa"></span>
+                <span class="mastercard"></span>
+                <span class="amex"></span>
+                <span class="discover"></span>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="PaymentAmount">Payment amount</label>
+                    <div class="amount-placeholder">
+                        <span>$</span>
+                        <span>500.00</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label or="NameOnCard">Name on card</label> <br>
+                    <input id="NameOnCard" class="form-control" type="text" maxlength="255"></input>
+                </div>
+                <div class="form-group">
+                    <label for="CreditCardNumber">Card number</label> <br>
+                    <input id="CreditCardNumber" class=" form-control" type="text"></input>
+                </div>
+                <div class="expiry-date-group form-group">
+                    <label for="ExpiryDate">Expiry date</label>
+                    <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="7"></input>
+                </div>
+                <div class="security-code-group form-group">
+                    <label for="SecurityCode">Security code</label>
+                    <div class="input-container" >
+                        <input id="SecurityCode" class="form-control" type="text" ></input>
+                    </div>
+                    
+                </div>
+                <div class="zip-code-group form-group">
+                    <label for="ZIPCode">ZIP/Postal code</label>
+                    <div class="input-container">
+                        <input id="ZIPCode" class="form-control" type="text" maxlength="10"></input>
+                    </div>
+                </div>
+                <button id="PayButton" type="submit">
+                    <span class="submit-button-lock"></span>
+                    <span class="align-middle">Pay $500.00</span>
+                </button>
+            </form>
+        </div>
+      </div>
+           
+    
+</body>
+</html>
