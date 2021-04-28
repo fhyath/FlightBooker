@@ -1,12 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700");
 *{
     margin: 0;
     padding: 0;
-    font-family: poppins, sans-serif;
+    /* font-family: poppins, sans-serif; */
+    font-family: "Roboto Mono", monospace;
+    /* font-family: 'Rubik', sans-serif; */
 }
 /* #################################    Flight Page    ################################# */
 .wrap{
     background: url("img/sunset.jpeg") no-repeat center center fixed;
-    /* background-repeat: no-repeat; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -14,14 +16,11 @@
     background-position: center;
 
 }
-/* ////////////// Nav Bar ///////////// */
+/* //////////////////// Nav Bar /////////////////// */
 .headerBar{
     height: 105px;
-    /* border: 1px solid black; */
     width: 100%;
-    /* background-color: white; */
     background: linear-gradient(to bottom, #3e6796 0%,#023d81 100%);
-    /* background-color: #ffffff; */
     box-shadow: 2px 4px 8px rgb(40, 39, 39);
 }
 .headerBar img{
@@ -34,7 +33,7 @@
     cursor: pointer;
     transform: scale(1.1);
 }
-/* ////////////// END Nav Bar ///////////// */
+/* //////////////////////// Form Body  ////////////////////////// */
 
 #search-form {
     margin-top: 85px;
@@ -152,7 +151,7 @@
 
 
 #flight-search .info-box {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
 }
 #flight-search input[type=submit] {
@@ -161,6 +160,7 @@
     padding: 0;
     height: 50px;
     font-size: 1.2em;
+    /* padding-top: 50px; */
     border-radius: 35px;
     transition: .5s;
 }
@@ -172,17 +172,7 @@
 /* //////////////  Menu Bar ///////////// */
 
 /* #################################    Flight Results Page    ################################# */
-:root {
-    --color-off-white: 495, 18%, 97%;
-    --color-purple: 239, 39%, 45%;
-    --color-light-purple: 240, 52%, 94%;
-    --color-orange: 13, 94%, 66%;
-    --color-dark-orange: 13, 94%, 46%;
-    --font-weight-normal: 400;
-    --font-weight-medium: 600;
-    --font-weight-bold: 700;
-    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  }
+
 /* /////////// Top section info bar ////////*/
 .prevInfo{
     width: 100%;
@@ -247,7 +237,7 @@
     background-color: #034897;
     color: white;
 }
- /* /////////// MAIN Body ////////*/
+ /* ////////////////// MAIN Body /////////////////////*/
   .wrap2 {
       /* box-sizing: border-box; */
 
@@ -293,6 +283,7 @@
     font-size: 1.2rem;
     font-weight: normal;
   }
+  /* /////////////////////////// DASHED Route line //////////////////// */
   .route-line {
     position: relative;
     margin: 1rem 0 0;
@@ -325,11 +316,8 @@
     border: 0.6rem solid HSL(240, 52%, 94%);
     transform: translate3d(50%, -50%, 0);
   }
-
-  .flightList__item{
-    /* margin-bottom: 7px; */
-    /* border: 1px solid black; */
-  } 
+ 
+  /* ////////////////////// Flight Card /////////////////////// */
 
   .flightCard {
     border-radius: 1.5rem;
@@ -341,7 +329,7 @@
     background-color: #fff;
     box-shadow: 3px 7px 9px rgb(40, 39, 39);
     transform: scale(.7);
-    transition: .8s;
+    transition: 1.5s, transform .4s ease-in-out;
   }
  .flightCard:hover{
      border: 1.5px solid black;
@@ -397,27 +385,7 @@
   .button:hover {
     background-color: black;
   }
-/* /////////////// Flight Result Modal ////////////////// */
 
-.modal-window {
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.25);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    /* transition: visibility .5s; */
-  }
-  .modal-window:target {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-    animation: slideUp .8s;
-  }
   @keyframes slideUp {
     0% {
       transform: translateY(-1500px);
@@ -426,65 +394,9 @@
       transform: translateY(0px);
     }
 }
-  .modal-window > div {
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2em;
-    background: white;
-  }
-  .modal-window header {
-    font-weight: bold;
-  }
-  .modal-window h1 {
-    font-size: 150%;
-    margin: 0 0 15px;
-  }
-  
-  .modal-close {
-    color: #aaa;
-    line-height: 50px;
-    font-size: 80%;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-    width: 70px;
-    text-decoration: none;
-  }
-  .modal-close:hover {
-    color: black;
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .modal-window > div {
-    border-radius: 1rem;
-  }
-  
-  .modal-window div:not(:last-of-type) {
-    margin-bottom: 15px;
-  }
-  
-  small {
-    color: lightgray;
-  }
-  
-  .btn {
-    background-color: white;
-    /* padding: 1em 1.5em; */
-    border-radius: 1rem;
-    text-decoration: none;
-  }
-  .btn i {
-    padding-right: 0.3em;
-  }
 
-  /* ############################## PAYMENT screen ############### */
+
+  /* ########################################## PAYMENT SCREEN ################################ */
   .paymentBody{
       background-color: #dce1e6;
   }
@@ -501,6 +413,7 @@
       font-weight: bold;
       color: #034897 ;
       text-shadow: .8px .9px 2px rgb(87, 87, 87);
+      animation: slideLeft .4s ease-in-out;
   }
   .flightDepart{
       /* margin-left: 105px; */
@@ -512,6 +425,7 @@
       padding: 20px;
       box-shadow: 2px 3px 6px rgb(40, 39, 39);
       width: 20%;
+      animation: slideLeft .75s ease-in-out;
   }
   .flightDepart .depart{
       font-weight: bold;
@@ -531,7 +445,7 @@
     padding: 15px;
     color: #034897;
 }
-/* ////// table info ////// */
+/* ///////////////////////////////////////// table info //////////////////// */
 table {
     border: 1px solid #ccc;
     border-collapse: collapse;
@@ -541,6 +455,7 @@ table {
     table-layout: fixed;
     margin-top: 50px;
     opacity: .8;
+    animation: slideLeft 1s ease-in-out;
   }
   thead{
       background-color: grey;
@@ -571,10 +486,12 @@ table {
   }
 
 
-  /* /////// CREDIT CARD INPUT /////////// */
+  /* /////////////////////////// CREDIT CARD INPUT ///////////////////////////// */
  
   .contain{
       margin-top: 65px;
+      animation: slideLeft 1.25s ease-in-out;
+      margin-bottom: 100px;
   }
   .amex {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAeCAMAAABdem3zAAAAA3NCSVQICAjb4U/gAAACi1BMVEUAAAAAAAAAdKIAdqcGdqoDeqkDeKoDe6sFeqoFeqwCeqoGe6wGeasGeqwGe6wFeqwFeqwFeqsGe6oFeawEeqwEeqwFe6wHeaoFe6oFeasFe6wFeawHe6wIfKwJfKwKfa0Lfa0Mfq0Of64Pf64QgK8RgK8Sga8TgbAUgrAVgrAWg7EXg7EYhLEZhLIahbIbhbIdhrMfh7QgiLQhiLQjirUkirUli7YnjLYojLcqjbcsj7gtj7kukLkvkLkwkbkxkboykrozkro0k7s1k7s2lLs3lLw4lbw5lbw6lr07lr08l709l75Amb9Bmr9Dm8BFnMBHncFIncFJnsJKnsJLn8JMn8NNoMNOocRPocRQosRRosVUpMZVpMZWpcZXpcdYpsdZp8dap8dbqMheqclgqslhq8pjrMpkrMtnrsxpr8xqr81tsc5vss5wss9xs89ztNB0tdB1ttF6uNJ8udN9utN+utR/u9SAu9SBvNWCvNWDvdWEvdWGvtaHv9aIv9eKwNeMwdiPw9mQw9mRxNqTxdqUxtuVx9uWx9yXyNyYyNyZyd2ayd2byt2cyt6dy96fzN+gzN+hzd+izeCjzuCkzuCn0OGp0eKq0eKr0uOs0+Ot0+Ov1OSw1eSy1uWz1uW01+W32Oa62ui72+i82+i+3Om/3enC3urE3+vF4OvH4ezI4uzJ4u3K4+3L4+3N5O7O5e7P5e/R5u/S5/DT5/DV6PHW6fHX6fHY6vHa6/Lb7PPc7PPd7fPe7fTf7vTg7vTi7/Xj8PXk8fbm8vbn8vfo8/fp8/fq9Pjr9Pjs9fjt9fnu9vnv9vnw9/rx9/ry+Prz+Pv0+fv1+fv2+vz4+/z5+/37/P38/f7+/v7///+B6xdgAAAAHHRSTlMAARYaJ0FIT1pcYG6YmZyssrPDys3T2tvt9PX+1nJQbwAAAnFJREFUOMtjYOAWESMWiAqwMzBwyZAEOBn4SdMgzCBImgYJUjVI0UeDkoGBrq6BgZ6MhgECqAA56nJ6ICZIWN3AQAeuoevIrvOHDuy6ZLl1366ru3ft2nVl167dJ08cOXHo/P6Dl3Yd33Nm15mdJw+thGnQO2ei2nzDRaZp405Zmd2KxhYWW2TMTeUmJOWv0NOPKVJ1uNEi4329LByuoXKaabvZNZcQw8u5IUANrYuX7pA5eNSxJCk/OPfGBe2ZKotbnAw6kTSs8Axslpnh0mtRr74YqME7LGaHjI6G4uakfOfGG21q3c5hLf7TNDMQGhqUMjN9vFz6O2TCjgA11M+Zs13m4oXIvKT8bOs+i7DMNJks/xuhcggNKQ3b+vfGpS65kLTqVNyRpLi4uP1xl6d09jRPPF+blHC29WB+SsX5PXF1cA0lE/1lWiZOnFg2saZrIgxkgojiyr6JZTLxQFZ5ycSJpRTHdOAmMMiM2Agk103esGnTxiWzwELTVwOJyes29aFqiFtrCQR+x05FuVpaWqcfA3I8FlQDyandjpaWh5KtLI3RNCxTA8ZypHewb7vNrvWKk2QW7wiIzU3YteusXtXWrQvllm+diK5BRl6+4JyW2omJ2qkRiqtknN2VF+UCxWbmKCi5b3GU1fRE16B+4cK5RCe3pH6z6bP3nZOZsyYoMzftwsWrp4+skZt/4kA1mqfjVqgAgcORw/Z23kejg86r7JxXm1AIFOqzVdFLAEoahaNqiDgMBplZQGKNjC6QbD0MA3vmAomN5XTLcaQASQZe0jSIM3CQpoGPgZFHmgT1QkwMDAzMrOxEAjYWBgYAvI9h1MHdhQIAAAAASUVORK5CYII=") #fff;
@@ -741,10 +658,6 @@ table {
     background-size: auto 90%
   }
   
-
-  
-
-  
   .submit-button-lock {
     height: 20px;
     margin-top: 1px;
@@ -763,4 +676,220 @@ table {
   
   input:focus {
     background-color: #EEF9F9;
+  }
+
+  /* ########################################## RECEIPT PAGE ##################################################### */
+
+.reciept{
+
+}
+.reciept p{
+  font-size: 35px;
+  font-weight: bold;
+  color: #034897;
+}
+.reciept img{
+  width: 150px;
+  margin-left: 35px;
+}
+.thanks{
+  width: 25%;
+  ;
+  border: 1px solid black;
+}
+
+  #bp {
+    display: block;
+    width: 300px; 
+    height: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.4);
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    overflow: hidden;
+  }
+  
+  #bp2 {
+    display: none;
+    width: 300px; 
+    height: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.4);
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0px; right: 0;
+    overflow: hidden;
+  }
+  
+  #bp .header {
+    text-align: center;
+    padding: 15px 0;
+  }
+  
+  #bp .header span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a6a6a6;
+  }
+  
+  #bp .airports {
+    font-size: 40px;
+    font-weight: 900;
+    color: #034897;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    padding-bottom: 80px;
+    border-bottom: 4px dashed #034897;
+  }
+  
+  #bp .airports .from {
+    width: 50%;
+  }
+  
+  #bp .airports .to {
+    width: 50%;
+  }
+  
+  #bp .airports i {
+    position: relative;
+    top: 35px;
+  }
+  
+  #bp .airports .from span,
+  #bp .airports .to span{
+    display: block;
+  }
+  
+  #bp .airports .date {
+    font-size: 20px;
+    color: #000;
+  }
+  
+  #bp .airports i {
+    font-weight: 200;
+    font-size: 20px;
+    color: #000;
+  }
+
+  
+  #bp .info .your-trip{
+    padding: 20px;
+    padding-top: 40px;
+  }
+  
+  #bp .info .your-trip span{
+    display: block;
+  }
+  
+  #bp .info .your-trip .title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a6a6a6;
+  }
+  
+  #bp .info .your-trip .from,
+  #bp .info .your-trip .to{
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 30px;
+  }
+  
+  #bp .info .details {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #bp .info .details span {
+    display: block;
+  }
+  
+  #bp .info .details .title {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a6a6a6;
+  }
+  
+  #bp .info .details {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 14px;
+  }
+  
+  #bp .info .details div{
+    margin: 0 15px;
+  }
+  
+  #bp .barcode {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 120px;
+    color: #000;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  #bp .barcode .checkin{
+    display:none;
+  }
+  
+  #bp2 .header {
+    text-align: center;
+    padding: 15px 0;
+  }
+  
+  #bp2 .header span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #a6a6a6;
+  }
+  
+  #bp2 .ok {
+    background: #5950ff;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    margin: 0 auto;
+    position: relative;
+    top: 130px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 40px;
+    color: #fff;
+  }
+  
+  #bp2 .cta a{
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    display: block;
+    margin: 0 20px;
+    padding: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    top: 280px;
+    border-radius: 500px;
+      transition: all .5s;
+  }
+  
+  #bp2 .cta a:hover{
+    background: #5950ff;
+      transition: all .5s;
   }

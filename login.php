@@ -46,20 +46,12 @@ $_SESSION["corrects"] =0;
 </head>
 
 <body>
-    <div id="mainDiv">
-        <div id="boxDiv">
-            <div id="front"></div>
-            <div id="back"></div>
-            <div id="left"></div>
-            <div id="right"></div>
-            <div id="top"></div>
-            <div id="bottom"></div>
-            <!-- <div class="shadow"></div> -->
-        </div>
-    </div> 
+    <div class="headerBar">
+        <img src="img/logo.png" alt="">
+    </div>
     <div class="wrapper">
         <div class="title">
-            Welcome to the Game of Life!</div>
+            Welcome to One-WAY!</div>
         <form  name="form" action="loginchecker.php" onsubmit="return validate()" method="post">
             <div class="field">
                 <input placeholder="Email Address" type="text" name="email" >

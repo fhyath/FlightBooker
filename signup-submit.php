@@ -15,7 +15,7 @@ session_start();
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="login.css" />
 
-    <title>IQ Game For Dummies-</title>
+    <title>One-Way</title>
     </head>
 
 
@@ -42,14 +42,16 @@ session_start();
     // fwrite($file, $password .".\n");
     // fclose($file);
  ?>
-       
+       <div class="headerBar">
+        <img src="img/logo.png" alt="">
+    </div>
        <div class="wrapper">
-        <div class="title">
+        <div class="title2">
             Thank you for signing up!</div>
         <form action="#">
            
             <div class="signup-link">
-                <h5><a href="login.php">Please Log In To Play</a></h5>
+                <h5><a href="login.php">Please Log In To Fly</a></h5>
         </form>
     </div>
   

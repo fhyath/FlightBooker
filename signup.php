@@ -44,16 +44,8 @@
 
 <body>
     
-    <div id="mainDiv">
-        <div id="boxDiv">
-            <div id="front"></div>
-            <div id="back"></div>
-            <div id="left"></div>
-            <div id="right"></div>
-            <div id="top"></div>
-            <div id="bottom"></div>
-            <!-- <div class="shadow"></div> -->
-        </div>
+    <div class="headerBar">
+        <img src="img/logo.png" alt="">
     </div>
     <div class="wrapper">
         <div class="title">

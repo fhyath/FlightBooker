@@ -6,15 +6,13 @@
 }
 
 body {
-  background-repeat: repeat;
-  background-image: url("img/bg.jpeg");
-}
-
-#mainDiv {
-  width: 260px;
-  height: 140px;
-  margin: 60px auto;
-  perspective: 500px;
+  background: url("img/sunset.jpeg") no-repeat center center fixed;
+    /* background-repeat: no-repeat; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
 }
 
 @keyframes starter {
@@ -26,107 +24,74 @@ body {
     transform: scaleX(3.5);
   }
 }
-
-#boxDiv {
-  width: 300px;
-  transform-style: preserve-3d;
-  animation: rotate 6s linear infinite;
-  /* animation: starter 4s linear; */
+.headerBar{
+  height: 105px;
+  width: 100%;
+  background: linear-gradient(to bottom, #3e6796 0%,#023d81 100%);
+  box-shadow: 2px 4px 8px rgb(40, 39, 39);
+}
+.headerBar img{
+  width: 305px;
+  margin-left: 200px;
+  transition: .5s;
+  animation: slideLeft .5s ease-in-out;
+}
+.headerBar img:hover{
   cursor: pointer;
-}
-
-#boxDiv div {
-  position: absolute;
-  width: 300px;
-  height: 210px;
-  opacity: 0.7;
-  color: white;
-}
-
-#front {
-  transform: translateZ(150px);
-  background: black;
-  background-image: url(img/title.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 160px;
-}
-
-#back {
-  transform: rotateY(180deg) translateZ(150px);
-  background: #101010;
-  background-image: url(img/title.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 160px;
-}
-
-#left {
-  transform: rotateY(-90deg) translateX(-150px);
-  transform-origin: left;
-  background: black;
-  background-image: url(img/title.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 160px;
-}
-
-#right {
-  transform: rotateY(90deg) translateX(150px);
-  transform-origin: right;
-  background: #101010;
-  background-image: url(img/title.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 160px;
-}
-
-#top {
-  transform: rotateX(-90deg) translateY(-150px);
-  transform-origin: top;
-  background: black;
-  background-image: url(img/title.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 200px;
-}
-
-#bottom {
-  transform: rotateX(90deg) translateY(150px);
-  transform-origin: bottom;
-  background: #101010;
-  background-image: url(img/title.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 160px;
+  transform: scale(1.1);
 }
 
 
-@keyframes rotate {
+
+@keyframes slideLeft {
   0% {
-    transform: rotateY(0);
+    transform: translateX(-1500px);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: translateX(0px);
   }
 }
-.wrapper{
-
-  width: 410px;
-  background: rgb(10, 10, 10);
-  border-radius: 15px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
-  animation-name: qnumani;
-  animation-duration: 2s;
-  position: fixed; /* or absolute */
-  top: 43%;
-  left: 39%;
+.wrapper, .wrapper2{
+  backdrop-filter: blur(13px);
+  width: 660px;
+  height: 660px;
+  background: rgb(10, 10, 10, 0);
+  /* border-radius: 15px; */
+  box-shadow: 8px 15px 10px rgba(0,0,0);
+  /* animation-name: qnumani;
+  animation-duration: 2s; */
+  /* top: 23%; */
+  /* margin-top: 50px; */
+  margin:0 auto;
+  border: 4px solid black;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: .4s;
+  border-radius: 50%;
+  border-top: 3px;
+  border-bottom: 3px;
+  animation: slideLeft .9s ease-in-out;
+}
+.wrapper2{
+  width: 375px;
+  height: 375px;
+  backdrop-filter: blur(13px);
+
+  background: rgb(10, 10, 10, 0);
+  /* border-radius: 15px; */
+  box-shadow: 8px 15px 10px rgba(0,0,0);
+
+  margin:0 auto;
+  border: 4px solid black;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: .4s;
+  border-radius: 50%;
+  border-top: 3px;
+  border-bottom: 3px;
+  animation: slideLeft .9s ease-in-out;
 }
 
-
 /* Pre-render the bigger shadow, but hide it */
-.wrapper::after {
+.wrapper::after, .wrapper2::after {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   opacity: 0;
   /* transition: opacity 0.3s ease-in-out; */
@@ -142,14 +107,16 @@ body {
   
 }
 .wrapper .title{
-  font-size: 22px;
-  font-weight: 100;
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 60px;
+  padding-top: 100px;
   text-align: center;
   line-height: 100px;
   color: #fff;
   user-select: none;
   border-radius: 15px 15px 0 0;
-  background-color: black;
+  background-color: none;
   transition: margin-top 1s;
 }
 .wrapper form{
@@ -158,23 +125,26 @@ body {
 .wrapper form .field{
   height: 50px;
   width: 100%;
+  margin: 0 auto;
   margin-top: 20px;
+  margin-left: 50px;
   position: relative;
 }
 .wrapper form .field input{
   height: 100%;
-  width: 100%;
+  width: 80%;
   outline: none;
   font-size: 17px;
   padding-left: 20px;
   border: 1px solid lightgrey;
   border-radius: 25px;
+  margin: 0 auto;
   transition: all 0.3s ease;
 }
 
 .wrapper form .field input:focus,
 form .field input:valid{
-  border-color: red;
+  border-color: black;
 }
 
 
@@ -183,16 +153,21 @@ form .field input[type="submit"]{
   border: 2px solid white;
   padding-left: 0;
   margin-top: -10px;
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: bolder;
   cursor: pointer;
   color:white;
-  background: black;
+  background: none;
+  /* -webkit-backdrop-filter: blur(0px); */
   transition: all 0.3s ease;
 }
 form .field input[type="submit"]:active{
   transform: scale(0.95);
-  color:red;
+  /* color:black; */
+  background-color: black;
+}
+form .field input[type="submit"]:hover{
+  background-color: black;
 }
 form .signup-link{
   color: #fff9f9;
@@ -202,19 +177,30 @@ form .signup-link{
 form .pass-link a,
 form .signup-link a{
   transition: all 0.5s ease;
-  color:red;
+  color:black;
   text-decoration: none;
 }
 form .pass-link a:hover,
 form .signup-link a:hover{
   /* text-decoration: underline; */
-    color:red;
+    color:black;
 
 }
 .signup-link{
-  color:red;
+  color:black;
+  font-weight: bold;
+  border: 1px solid black;
+  width: 40%;
+  padding: 10px;
+  border-radius: 25px;
+  margin: 0 auto;
+  transition: .5s;
+}
+.signup-link:hover{
+  background-color: white;
+
 }
 ::placeholder{
-  color: red;
+  color: black;
 }
 
