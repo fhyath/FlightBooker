@@ -26,12 +26,20 @@
 .headerBar img{
     width: 305px;
     margin-left: 200px;
+    float: left;
     transition: .5s;
     animation: slideLeft .5s ease-in-out;
 }
 .headerBar img:hover{
     cursor: pointer;
     transform: scale(1.1);
+}
+.headerBar .user{
+  width: 70px;
+  margin-left: 850px;
+  margin-top: 18px;
+  float: left;
+
 }
 /* //////////////////////// Form Body  ////////////////////////// */
 
@@ -679,23 +687,43 @@ table {
   }
 
   /* ########################################## RECEIPT PAGE ##################################################### */
-
+.recieptbg{
+  background-color: #dce1e6
+}
 .reciept{
-
+  width: 65%;
+  margin-top: 15px;
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+  height: 600px;
+  border-radius: 25px;
+  box-shadow: 3px 7px 9px rgb(40, 39, 39);
+  animation: slideLeft .9s ease-in-out;
 }
 .reciept p{
   font-size: 35px;
   font-weight: bold;
+  text-align: center;
   color: #034897;
 }
 .reciept img{
-  width: 150px;
+  width: 190px;
   margin-left: 35px;
 }
 .thanks{
   width: 25%;
-  ;
-  border: 1px solid black;
+  float: left;
+  margin-left: 60px;
+  /* border: 1px solid black; */
+  padding-right: 25px;
+  margin-top: 175px;
+}
+.thanks2{
+  width: 25%;
+  float: left;
+  margin-left: 80px;
+  margin-top: 175px;
 }
 
   #bp {
@@ -704,25 +732,24 @@ table {
     height: 500px;
     background-color: #fff;
     border-radius: 5px;
+    float: left;
     box-shadow: 0 3px 10px rgba(0,0,0,.4);
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    overflow: hidden;
+    margin-top: 35px;
+    margin-left: 50px;
+    /* margin: auto; */
+    /* position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0; */
+    /* overflow: hidden; */
+    transition: .5s ease-in-out;
+    animation: slideUp 1.4s ease-in;
   }
   
-  #bp2 {
-    display: none;
-    width: 300px; 
-    height: 500px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.4);
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0px; right: 0;
-    overflow: hidden;
-  }
+#bp:hover{
+  background-color: black;
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+}
   
   #bp .header {
     text-align: center;
@@ -749,11 +776,11 @@ table {
     border-bottom: 4px dashed #034897;
   }
   
-  #bp .airports .from {
+  .from {
     width: 50%;
   }
   
-  #bp .airports .to {
+  .to {
     width: 50%;
   }
   
@@ -762,24 +789,24 @@ table {
     top: 35px;
   }
   
-  #bp .airports .from span,
-  #bp .airports .to span{
+  .from span,
+  .to span{
     display: block;
   }
   
-  #bp .airports .date {
+  .airports .date {
     font-size: 20px;
-    color: #000;
+    /* color: #000; */
   }
   
-  #bp .airports i {
+  .airports i {
     font-weight: 200;
     font-size: 20px;
-    color: #000;
+    /* color: #000; */
   }
 
   
-  #bp .info .your-trip{
+  .info .your-trip{
     padding: 20px;
     padding-top: 40px;
   }
@@ -788,7 +815,7 @@ table {
     display: block;
   }
   
-  #bp .info .your-trip .title {
+  .your-trip .title {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -829,67 +856,86 @@ table {
   #bp .info .details div{
     margin: 0 15px;
   }
-  
-  #bp .barcode {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 120px;
-    color: #000;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
-  #bp .barcode .checkin{
-    display:none;
-  }
-  
-  #bp2 .header {
-    text-align: center;
-    padding: 15px 0;
-  }
-  
-  #bp2 .header span {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #a6a6a6;
-  }
-  
-  #bp2 .ok {
-    background: #5950ff;
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    margin: 0 auto;
-    position: relative;
-    top: 130px;
-    text-align: center;
-    line-height: 100px;
-    font-size: 40px;
-    color: #fff;
-  }
-  
-  #bp2 .cta a{
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-    display: block;
-    margin: 0 20px;
-    padding: 20px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 600;
-    top: 280px;
-    border-radius: 500px;
-      transition: all .5s;
-  }
-  
-  #bp2 .cta a:hover{
-    background: #5950ff;
-      transition: all .5s;
-  }
+
+    /* ########################################## ACCOUNT PAGE ##################################################### */
+
+.userCard{
+  width: 350px;
+  border: 1px solid black;
+  margin: 0 auto;
+  /* margin-top: 20px; */
+  box-shadow: 3px 7px 9px rgb(40, 39, 39);
+  height: 290px;
+  display: block;
+  background-color: white;
+  border-radius: 45px;
+  transition: .5s;
+}
+.userCard img{
+  width: 145px;
+  margin-left: 110px;
+  margin-top: 15px;
+
+}
+.userCard p{
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+  padding-top: 15px;
+
+}
+.userCard span{
+  text-decoration: underline;
+  color: green;
+}
+.userCard:hover{
+  transform: scale(1.1);
+}
+
+.accountInfo{
+  width: 45%;
+  border: 1px solid black;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: 3px 7px 9px rgb(40, 39, 39);
+  height: auto;
+  display: block;
+  background-color: white;
+  border-radius: 15px;
+  transition: .5s;
+}
+.accountInfo img{
+  width: 70px;
+  opacity: .6;
+  float: left;
+}
+.item{
+  width: 100%;
+  display: block;
+  height: 80px;
+}
+.item:not(:last-child){
+  border-bottom: 2px solid black;
+}
+.acctHeader{
+  text-align: center;
+  margin-top: 45px;
+  font-size: 27px;
+  font-weight: bold;
+}
+.item .prevFlight{
+  /* float: left; */
+  font-weight: bold;
+  opacity: .6;
+  margin-top: 18px;
+}
+span .city{
+  color: black;
+  font-weight: bolder;
+  font-size: 55px;
+  padding-top: 25px;
+  /* display: inline-block; */
+  /* float: left; */
+  /* float: left; */
+  /* opacity: 1; */
+}
