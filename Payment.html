@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="styles.css">
     <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.5.8/cleave.min.js"></script>
     <title>Payment Details</title>  
 </head>
 <body class="paymentBody">
     <div class="headerBar">
         <img src="img/logo.png" alt="">
+        <a href="./Profile.html">
+          <img src="img/user.png" class="user" alt="">
+        </a>
     </div>
     
       <div class="paymentHeader">
@@ -47,10 +51,10 @@
         <div id="Checkout" class="inline">
             <h1>Pay Invoice</h1>
             <div class="card-row">
-                <span class="visa"></span>
-                <span class="mastercard"></span>
-                <span class="amex"></span>
-                <span class="discover"></span>
+                <span class = "card" id="visa"></span>
+                <span  class = "card" id="mastercard"></span>
+                <span  class = "card" id="amex"></span>
+                <span  class = "card" id="discover"></span>
             </div>
             <form>
                 <div class="formGroup">
@@ -70,21 +74,33 @@
                 </div>
                 <div class="expiry-date-group formGroup">
                     <label for="ExpiryDate">Expiry date</label>
-                    <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="7"></input>
+                    <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="5"></input>
                 </div>
                 <div class="security-code-group formGroup">
                     <label>Security code</label>
                     <div class="input-container" >
-                        <input id="SecurityCode" class="form-control" type="text" ></input>
+                        <input id="SecurityCode" class="form-control" type="password" ></input>
                     </div>
                     
                 </div>
                 <div class="zip-code-group formGroup">
-                    <label>ZIP/Postal code</label>
+                    <label>Billing Address</label>
                     <div class="input-container">
-                        <input id="ZIPCode" class="form-control" type="text" maxlength="10"></input>
+                        <input id="ZIPCode" class="form-control" type="text"></input>
+                    </div>
+                    <label>Phone Number</label>
+                    <div class="input-container" >
+                        <input id="SecurityCode" class="form-control" type="tel" ></input>
+                    </div>
+                    <label>Discount Code</label>
+                    <div class="input-container" >
+                        <input id="SecurityCode" class="form-control" type="text" ></input>
                     </div>
                 </div>
+
+                
+
+                
                 <!-- <a href="./Reciept.html"> -->
                     <button id="PayButton" type="submit" class="button" onclick="location.replace('./Reciept.html');">
                         <span class="submit-button-lock"></span>
@@ -95,6 +111,38 @@
             </form>
         </div>
       </div>
+      
+      <script>
+      var cleave = new Cleave('#CreditCardNumber', {
+              creditCard: true,
+              onCreditCardTypeChanged: function (type) {
+                  console.log(type);
+                if(type == "visa"){
+                    document.getElementById("visa").style.opacity = 1;
+                    
+                }
+                else if(type == "mastercard"){
+                    document.getElementById("mastercard").style.opacity = 1;
+
+                }
+                else if(type == "amex"){
+                    document.getElementById("amex").style.opacity = 1;
+                    
+                }
+                else if(type == "discover"){
+                    document.getElementById("discover").style.opacity = 1;
+                    
+                }
+                else {
+                    setOpacity(".card")
+                }
+     }
+  });
+    function setOpacity(className) {
+        document.querySelectorAll(className).forEach(el => el.style.opacity = 0.2);
+    }
+   
+      </script>
            
     
 </body>
