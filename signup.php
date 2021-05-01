@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="login.css?v=<?php echo time(); ?>" />
 
     <title>Game of Life</title>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     function validate() {
          var name = document.forms["form"]["name"].value;
         if(name==""){
@@ -36,7 +36,7 @@
                         return false;
                     }
                 }
-</script>
+</script> -->
 
 
 
@@ -50,9 +50,15 @@
     <div class="wrapper">
         <div class="title">
             Signup to create an account!</div>
-	<form name= "form" action="signup-submit.php" onsubmit="return validate()"method="post">
+	<form name= "form" action="signup-submit.php" method="POST">
+         <div class="field">
+                <input placeholder="Enter an Unique ID" type="text" name="custID" >
+            </div>
             <div class="field">
-                <input placeholder="Name" type="text" name="name" >
+                <input placeholder="First Name" type="text" name="firstname" >
+            </div>
+              <div class="field">
+                <input placeholder="Last Name" type="text" name="lastname" >
             </div>
             <div class="field">
                 <input placeholder="Email Address" type="text" name="email" >

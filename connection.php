@@ -16,7 +16,12 @@ echo "Connected successfully";
 
 $sql = "DELETE FROM CUSTOMERS WHERE CUST_ID = '1';";
 $sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-VALUES ( '1','john@example.com', 'John', 'Doe', 'JD21')";
+VALUES ( '1','john@example.com', 'John', 'Doe', 'JD21');";
+
+
+$sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
+VALUES ( '2','joemama@example.com', 'Joe', 'Mama', 'JM34');";
+
 
 
 // if ($conn->query($sql) === TRUE) {

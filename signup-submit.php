@@ -1,9 +1,6 @@
-<?php
-// Start the session
-session_start();
-?>
 
-<!DOCTYPE html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,46 +16,46 @@ session_start();
     </head>
 
 
-    <body>
+    <body> -->
       <?php
   
-    
-    $name = $_POST["name"];
+    include_once 'connection.php';
+    $customerId=$_POST["custID"];
+    $fname = $_POST["firstname"];
+    $lname = $_POST["lastname"];
+
 	$email = $_POST["email"];
     $password = $_POST["password"];
-    $contents = "$email,$password,$name\n";
-	# adding the long string containing users information to the end of the file
-	file_put_contents("username.txt", $contents, FILE_APPEND);
-    $_SESSION["name"] = $name;
-    $_SESSION["corrects"] =0;
-    
-    // extract($_REQUEST);
-    // $file=fopen("username.txt","a");
-    // // fwrite($file,"Name : ");
-    // fwrite($file, $name .",");
-    // // fwrite($file," Email : ");
-    // fwrite($file, $email .",");
-    // // fwrite($file," Password : ");
-    // fwrite($file, $password .".\n");
-    // fclose($file);
- ?>
-       <div class="headerBar">
-        <img src="img/logo.png" alt="">
-    </div>
-       <div class="wrapper">
-        <div class="title2">
-            Thank you for signing up!</div>
-        <form action="#">
+
+    $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD) VALUES 
+    ( '$customerId' , '$email' ,'$fname, '$lname' , '$password');";
+    if ($conn->query($sql) === TRUE) {
+   printf("\nNew record created successfully");
+       header("Location: ./login.php?signup=success");
+
+} else 
+       printf("Error: ", $sql, "<br>", $conn->error)
+
+
+
+
+//        <!-- <div class="headerBar">
+//         <img src="img/logo.png" alt="">
+//     </div>
+//        <div class="wrapper">
+//         <div class="title2">
+//             Thank you for signing up!</div>
+//         <form action="#">
            
-            <div class="signup-link">
-                <h5><a href="login.php">Please Log In To Fly</a></h5>
-        </form>
-    </div>
+//             <div class="signup-link">
+//                 <h5><a href="login.php">Please Log In To Fly</a></h5>
+//         </form>
+//     </div>
   
 
     
    
-</body>
+// </body>
 
 
-</html>
+// </html> -->
