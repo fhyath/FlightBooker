@@ -1,30 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-
     include 'connection.php';
-    include 'debug.php';
 
-    $customerId=$_POST["custID"];
+    $customerId =$_POST["custID"];
     $fname = $_POST["firstname"];
     $lname = $_POST["lastname"];
 
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    console_log("customerID: ",$customerID);
-    $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-     VALUES 
-    ( '$customerId' , '$email' ,'$fname, '$lname' , '$password');";
+    console_log("customerId: ", $customerId);
+//     $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
+//      VALUES 
+//     ( '$customerId' , '$email' ,'$fname, '$lname' , '$password');";
 
-    if ($conn->query($sql) === TRUE) {
-   printf("\nNew record created successfully");
-       header("Location: ./login.php?signup=success");
+//     if ($conn->query($sql) === TRUE) {
+//    printf("\nNew record created successfully");
+//        header("Location: ./login.php?signup=success");
 
-} else {
-    printf("Error ", $sql, "<br>", $conn->error);
+// } else {
+//     printf("Error ", $sql, "<br>", $conn->error);
+// }
     ?>
-^^signup submit
 <body>
 
     <div class="headerBar">

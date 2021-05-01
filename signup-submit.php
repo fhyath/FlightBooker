@@ -1,6 +1,31 @@
 <?php
 // Start the session
-session_start();
+// session_start();
+
+include 'connection.php';
+
+$customerId=$_POST["custID"];
+$fname = $_POST["firstname"];
+$lname = $_POST["lastname"];
+
+$email = $_POST["email"];
+$password = $_POST["password"];
+
+// console_log($customerId);
+$sql = "DELETE FROM CUSTOMERS WHERE CUST_ID = '1';";
+$sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
+    VALUES ('$customerId' , '$email' ,'$fname, '$lname' , '$password')";
+
+console_log($sql);
+    if ($conn->query($sql) === TRUE) {
+       console_log("\nNew record created successfully");
+       header("Location: ./login.php?signup=success");
+
+} else {
+    console_log("Error: ");
+    console_log($conn->error);
+    // "<br>", $conn->error);
+}
 ?>
 
 <!DOCTYPE html>
