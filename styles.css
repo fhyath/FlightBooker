@@ -179,7 +179,7 @@
 }
 /* //////////////  Menu Bar ///////////// */
 
-/* #################################    Flight Results Page    ################################# */
+/* ###############################################    Flight Results Page    ################################# */
 
 /* /////////// Top section info bar ////////*/
 .prevInfo{
@@ -187,6 +187,7 @@
     height: 70px;
     box-shadow: 2px 4px 8px rgb(40, 39, 39);
     padding-top: 25px;
+    /* margin: 0 auto; */
     /* border: 2px solid black; */
 }
 .enteredDepart{
@@ -196,7 +197,7 @@
     border: 2px solid black;
     border-radius: 25px;
     display: block;
-    margin-left: 145px;
+    margin-left: 180px;
     transition: .6s;
     float: left;
 }
@@ -240,10 +241,24 @@
     font-size: 19px;
 
 }
-.enteredDepart:hover, .enteredDate:hover{
+.enteredDepart:hover, .enteredDate:hover, .enteredDate select:hover{
     transform: scale(1.1);
     background-color: #034897;
     color: white;
+}
+.enteredDate select{
+  height: 50px;
+  margin: 0;
+  font-size: 16px;
+  padding: 0;
+  background-color: white;
+  font-weight: bold;
+  color: black;
+  transition: .6s;
+  /* text-align: center; */
+}
+.enteredDate select:hover{
+  
 }
  /* ////////////////// MAIN Body /////////////////////*/
   .wrap2 {
@@ -329,7 +344,7 @@
 
   .flightCard {
     border-radius: 1.5rem;
-    box-shadow: 0 0 0.1rem HSLA(239, 39%, 45%, 0.1);
+    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -501,6 +516,9 @@ table {
       animation: slideLeft 1.25s ease-in-out;
       margin-bottom: 100px;
   }
+#amex, #visa, #mastercard, #discover{
+  transition: 1.1s;
+}
   #amex {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAeCAMAAABdem3zAAAAA3NCSVQICAjb4U/gAAACi1BMVEUAAAAAAAAAdKIAdqcGdqoDeqkDeKoDe6sFeqoFeqwCeqoGe6wGeasGeqwGe6wFeqwFeqwFeqsGe6oFeawEeqwEeqwFe6wHeaoFe6oFeasFe6wFeawHe6wIfKwJfKwKfa0Lfa0Mfq0Of64Pf64QgK8RgK8Sga8TgbAUgrAVgrAWg7EXg7EYhLEZhLIahbIbhbIdhrMfh7QgiLQhiLQjirUkirUli7YnjLYojLcqjbcsj7gtj7kukLkvkLkwkbkxkboykrozkro0k7s1k7s2lLs3lLw4lbw5lbw6lr07lr08l709l75Amb9Bmr9Dm8BFnMBHncFIncFJnsJKnsJLn8JMn8NNoMNOocRPocRQosRRosVUpMZVpMZWpcZXpcdYpsdZp8dap8dbqMheqclgqslhq8pjrMpkrMtnrsxpr8xqr81tsc5vss5wss9xs89ztNB0tdB1ttF6uNJ8udN9utN+utR/u9SAu9SBvNWCvNWDvdWEvdWGvtaHv9aIv9eKwNeMwdiPw9mQw9mRxNqTxdqUxtuVx9uWx9yXyNyYyNyZyd2ayd2byt2cyt6dy96fzN+gzN+hzd+izeCjzuCkzuCn0OGp0eKq0eKr0uOs0+Ot0+Ov1OSw1eSy1uWz1uW01+W32Oa62ui72+i82+i+3Om/3enC3urE3+vF4OvH4ezI4uzJ4u3K4+3L4+3N5O7O5e7P5e/R5u/S5/DT5/DV6PHW6fHX6fHY6vHa6/Lb7PPc7PPd7fPe7fTf7vTg7vTi7/Xj8PXk8fbm8vbn8vfo8/fp8/fq9Pjr9Pjs9fjt9fnu9vnv9vnw9/rx9/ry+Prz+Pv0+fv1+fv2+vz4+/z5+/37/P38/f7+/v7///+B6xdgAAAAHHRSTlMAARYaJ0FIT1pcYG6YmZyssrPDys3T2tvt9PX+1nJQbwAAAnFJREFUOMtjYOAWESMWiAqwMzBwyZAEOBn4SdMgzCBImgYJUjVI0UeDkoGBrq6BgZ6MhgECqAA56nJ6ICZIWN3AQAeuoevIrvOHDuy6ZLl1366ru3ft2nVl167dJ08cOXHo/P6Dl3Yd33Nm15mdJw+thGnQO2ei2nzDRaZp405Zmd2KxhYWW2TMTeUmJOWv0NOPKVJ1uNEi4329LByuoXKaabvZNZcQw8u5IUANrYuX7pA5eNSxJCk/OPfGBe2ZKotbnAw6kTSs8Axslpnh0mtRr74YqME7LGaHjI6G4uakfOfGG21q3c5hLf7TNDMQGhqUMjN9vFz6O2TCjgA11M+Zs13m4oXIvKT8bOs+i7DMNJks/xuhcggNKQ3b+vfGpS65kLTqVNyRpLi4uP1xl6d09jRPPF+blHC29WB+SsX5PXF1cA0lE/1lWiZOnFg2saZrIgxkgojiyr6JZTLxQFZ5ycSJpRTHdOAmMMiM2Agk103esGnTxiWzwELTVwOJyes29aFqiFtrCQR+x05FuVpaWqcfA3I8FlQDyandjpaWh5KtLI3RNCxTA8ZypHewb7vNrvWKk2QW7wiIzU3YteusXtXWrQvllm+diK5BRl6+4JyW2omJ2qkRiqtknN2VF+UCxWbmKCi5b3GU1fRE16B+4cK5RCe3pH6z6bP3nZOZsyYoMzftwsWrp4+skZt/4kA1mqfjVqgAgcORw/Z23kejg86r7JxXm1AIFOqzVdFLAEoahaNqiDgMBplZQGKNjC6QbD0MA3vmAomN5XTLcaQASQZe0jSIM3CQpoGPgZFHmgT1QkwMDAzMrOxEAjYWBgYAvI9h1MHdhQIAAAAASUVORK5CYII=") #fff;
     opacity:0.2;
@@ -509,6 +527,7 @@ table {
   #visa {
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAeCAMAAABdem3zAAAAA3NCSVQICAjb4U/gAAABvFBMVEUAAADQ0NDa2tra2trZ2dnY2Nja2trt7e3t7e0mM3onNHspNXkqN30rN30sOH4tN3ovO4AwPIAyPoE1QYM3Q4Q4Q4U4RIU5RYY8R4g9SIhCTYtDToxGUY5HUo5JU49JVJBOWJJQW5RSXJVTXZZVX5dXYZhYYplaY5pfaJ1kbaBlbqFoaZFocaNpcqNqc6RtdqZvd6dzcpV0fKp2f6x5ga18g698hK99hK99hbB+hrCAh7GDi7OHjrWIj7aJkLeNk7mNlLqOlbqRl7yUmr6WnL6YnsCbocKepMSjqMekqceprsqrsMysscytss2uss2xts+xttC0uNG1udK1utK2utK3u9O6vdS7v9W8wNa9wda9wdfBxNnDx9rEx9vFyNzFydvHy93Kzd/Mz+DR0+LS1OPT1uTVnV/V1+XX2ebY2NjZuJbZ2+faoVza3Ojc3+rf4evf4ezi5O7j5e7n6fHp6/Lq6/Lr7PPsmC3snTfs7fPunjnu7/Tu7/Xw8fbx8vfy8/f09fj09fn19vn29/r3z5332LH39/r42LD42bL42bP5+fv76tX77dz7+/v7+/387dv9/f7+9ev//v3///9+dhG/AAAACXRSTlMAGxuq7e7u+vsOT6YMAAABbklEQVQ4y+WUV1cTYRQAlwSIsxoLltgLKgZ7AwV777FiL9gT1x4FGxpb0Gg0On/YBx83D+wz8z7nu+fe800QpNKtpTHSmk4FQUt7pu4YqWfaW4L0BBOQSQdt9SRCvS0omYjSOBZ+fB0d/f5T/VQoDHi6cF4b1/Zt6d9fUZ+cLFyMvfDny6vhN3/1EOwegW4/LAHgpb6bBpNr8ZE2PBz+rQvIvrgJ2+2DdaeOba7pXoBbceHAxHvfHIRNHoHjLobLqlZnkIeDcaHIlAeuh6Jb4bb9EG58rh6G4nTWNNnSHFYNZcnrcsKK1d4Qpl63MY9lrmRmE6GHcCdc0Q7mqt5ZAfM9C7uKvfA0LlyASSzUt7Daz+pIyGw7+c+JuPAxCxzV+7DHrq5tOzqhbxA6crlcSE+TS+dhVk0vwRk7AFhb64a76lIWva7EhKEoKqvvo6jqs6sD526UNYoeq5ajR78a4/k/JM5M4pAlTGUqSBrjf5znrWNE0ZcCAAAAAElFTkSuQmCC") #fff;
     opacity:0.2;
+    /* transition: 1.5s; */
   }
   
   #mastercard {
@@ -597,7 +616,8 @@ table {
     color: #d5dbde;
     font-size: 24px;
     font-weight: 300;
-    border-bottom: 1px solid #DEDEDE;
+    /* border-bottom: 1px solid #DEDEDE; */
+    box-shadow: 0 2px 7px -2px rgb(40, 39, 39);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
   }
@@ -869,14 +889,14 @@ table {
   margin: 0 auto;
   /* margin-top: 20px; */
   box-shadow: 3px 7px 9px rgb(40, 39, 39);
-  height: 290px;
+  height: 320px;
   display: block;
   background-color: white;
   border-radius: 45px;
   transition: .5s;
 }
 .userCard img{
-  width: 145px;
+  width: 135px;
   margin-left: 110px;
   margin-top: 15px;
 
@@ -895,9 +915,16 @@ table {
 .userCard:hover{
   transform: scale(1.1);
 }
-
+.userCard .email{
+  font-size: 17px;
+  opacity: .7;
+  transition: .9s ease-in-out;
+}
+.userCard .email:hover{
+  opacity: 1;
+}
 .accountInfo{
-  width: 45%;
+  width: 65%;
   border: 1px solid black;
   margin: 0 auto;
   margin-top: 50px;
@@ -905,6 +932,7 @@ table {
   height: auto;
   display: block;
   background-color: white;
+  margin-bottom: 150px;
   border-radius: 15px;
   transition: .5s;
 }
@@ -916,7 +944,15 @@ table {
 .item{
   width: 100%;
   display: block;
-  height: 80px;
+  height: 86px;
+  background-color: white;
+  border-radius: 25px;
+  padding-top: 8px;
+  transition: .4s ease-in-out;
+}
+.item:hover{
+  transform: scale(1.019);
+  /* opacity: 1; */
 }
 .item:not(:last-child){
   border-bottom: 2px solid black;
@@ -931,15 +967,71 @@ table {
   /* float: left; */
   font-weight: bold;
   opacity: .6;
-  margin-top: 18px;
+  /* margin-top: 18px; */
+  /* text-align: center; */
 }
+
 span .city{
   color: black;
   font-weight: bolder;
   font-size: 55px;
   padding-top: 25px;
-  /* display: inline-block; */
-  /* float: left; */
-  /* float: left; */
-  /* opacity: 1; */
+}
+.itemImg{
+  width: 10%;
+  float: left;
+}
+.previous{
+  width: 80%;
+  height: 100%;
+  float: left;
+  /* border: 4px solid black; */
+  /* text-align: center; */
+  /* display: flex;
+  justify-content: center; */
+}
+.previous p{
+  text-align: center;
+}
+.previous .city{
+  /* text-align: center; */
+  font-weight: bold;
+  float: left;
+  padding-left: 20px;
+  /* padding-top: 150px; */
+}
+.previous img{
+  width: 55px;
+  float: left;
+  padding-left: 50px;
+  padding-RIGHT: 50px;
+  opacity: .85;
+}
+.depArr{
+  width: 75%;
+  margin: 0 auto;
+}
+.paidAmount{
+  width: 8%;
+  /* border: 2px solid black; */
+  padding-top: 2px;
+  float: left;
+  height: 100%;
+}
+.price2 {
+  font-size: 2.2rem;
+  padding-left: 14px;
+  opacity: .8;
+  /* font-weight: bold; */
+  color: black;
+}
+.price2 sup {
+  vertical-align: top;
+  font-size: 1rem;
+  /* font-weight: normal; */
+}
+.price2 sub {
+  vertical-align: bottom;
+  font-size: .8rem;
+  /* font-weight: normal; */
 }

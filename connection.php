@@ -1,5 +1,5 @@
 <?php
-
+include debug.php;
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -25,9 +25,9 @@ VALUES ( '2','joemama@example.com', 'Joe', 'Mama', 'JM34');";
 
 
 // if ($conn->query($sql) === TRUE) {
-//   echo "\nNew record created successfully";
+//   console.log("\nNew record created successfully");
 // } else {
-//   echo "Error: " . $sql . "<br>" . $conn->error;
+//   console.log("Error: ", $sql, "<br>", $conn->error)
 // }
 
 if ($conn -> multi_query($sql)) {
