@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./img/title.png" type="image/x-icon">  
-    <link rel="stylesheet" type="text/css" href="login.css?v=<?php echo time(); ?>" />
+    include 'connection.php';
+    include 'debug.php';
 
-    <title>Game of Life</title>
-    <script type="text/javascript">
-    function validate() {
-         var name = document.forms["form"]["name"].value;
-        if(name==""){
-            alert("Please enter the name");
-            return false;
-            }
-        var email = document.forms["form"]["email"].value;
-        if(email==""){
-            alert("Please enter the email");
-            return false;
-            }else{
-                var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
-                var x=re.test(email);
-                if(x){
+    $customerId=$_POST["custID"];
+    $fname = $_POST["firstname"];
+    $lname = $_POST["lastname"];
 
-                }else{
-                    alert("Email id not in correct format");
-                    return false;
-                    } 
-                    } 
-                    var password = document.forms["myform"]["password"].value;
-                    if(password==""){
-                        alert("Please enter the Password");
-                        return false;
-                    }
-                }
-</script>
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
+    console_log("customerID: ",$customerID);
+    $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
+     VALUES 
+    ( '$customerId' , '$email' ,'$fname, '$lname' , '$password');";
 
+    if ($conn->query($sql) === TRUE) {
+   printf("\nNew record created successfully");
+       header("Location: ./login.php?signup=success");
 
-</head>
-
+} else {
+    printf("Error ", $sql, "<br>", $conn->error);
+    ?>
+^^signup submit
 <body>
-    
+
     <div class="headerBar">
         <img src="img/logo.png" alt="">
     </div>
     <div class="wrapper">
         <div class="title">
             Signup to create an account!</div>
-	<form name= "form" action="signup-submit.php" onsubmit="return validate()"method="post">
+    <form name= "form" action="signup-submit.php" method="POST">
+         <div class="field">
+                <input placeholder="Enter an Unique ID" type="text" name="custID" >
+            </div>
             <div class="field">
-                <input placeholder="Name" type="text" name="name" >
+                <input placeholder="First Name" type="text" name="firstname" >
+            </div>
+              <div class="field">
+                <input placeholder="Last Name" type="text" name="lastname" >
             </div>
             <div class="field">
                 <input placeholder="Email Address" type="text" name="email" >
@@ -66,7 +55,7 @@
             </div>
             <div class="signup-link">
                <a href="login.php">Go back to login!</a>
-            </div>  
+            </div>
         </form>
     </div>
 </body>
