@@ -27,11 +27,6 @@ VALUES ( '3','joemadwdma@example.com', 'Jdwoe', 'wMama', 'JMwd34');";
 
 
 
-// if ($conn->query($sql) === TRUE) {
-//   console.log("\nNew record created successfully");
-// } else {
-//   console.log("Error: ", $sql, "<br>", $conn->error)
-// }
 
 if ($conn -> multi_query($sql)) {
     do {
