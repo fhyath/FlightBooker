@@ -14,12 +14,17 @@ if ($conn->connect_error) {
 } 
 console_log("Connected successfully");
 
+// $sql = "INSERT INTO CUSTOMERS ( EMAIL, FNAME, LNAME, PWD)
+// VALUES ( 'joemama@sccs.com', 'cs', 'cscs', 'eer23')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 $conn->close();
 
 
-$sql = "DELETE FROM CUSTOMERS WHERE CUST_ID = '1';";
-$sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-VALUES ( '1','john@example.com', 'John', 'Doe', 'JD21')";
+
 
 console_log("testing");
 console_log($sql);

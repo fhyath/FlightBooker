@@ -1,3 +1,12 @@
+<?php
+// Start the session
+// Takes the user to the login page if they try to access the flights.php without loggin in 
+session_start();
+if(!$_SESSION['OneWay']){
+    header("Location:login.php");    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
