@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+$_SESSION["corrects"] =0;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +16,7 @@
     
     <link rel="stylesheet" type="text/css" href="login.css?v=<?php echo time(); ?>" />
 
-    <title>One-Way</title>
+    <title>Game of Life</title>
     
     <script type="text/javascript">
     function validate() {
@@ -47,7 +52,7 @@
     <div class="wrapper">
         <div class="title">
             Welcome to One-WAY!</div>
-        <form  name="form" action="loginchecker.php" onsubmit="return validate()" method="POST">
+        <form  name="form" action="loginchecker.php" onsubmit="return validate()" method="post">
             <div class="field">
                 <input placeholder="Email Address" type="text" name="email" >
             </div>
