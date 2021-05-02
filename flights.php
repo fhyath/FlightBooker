@@ -1,12 +1,3 @@
-<?php
-// Start the session
-// Takes the user to the login page if they try to access the flights.php without loggin in 
-session_start();
-if(!$_SESSION['OneWay']){
-    header("Location:login.php");    
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +14,9 @@ if(!$_SESSION['OneWay']){
         <img src="img/logo.png" alt="">
     </div>
     <div class="blur">
+    <!-- <div class="wrapper"> -->
         <br> <br> 
+        
         <br> <br>
         <div id="search-form">
             <div id="header">
@@ -31,33 +24,32 @@ if(!$_SESSION['OneWay']){
             </div>
             <section>
             <div class="flight" id="flightbox">
-                <form id="flight-form" action="flightResults.html">
+                <form id="flight-form" method="post" action="./flightResults.php">
 
                 <!-- FROM/TO -->
                 <div id="flight-depart">
                     <div class="info-box">
                         <label for="">LEAVING FROM</label>
-                            <select>
+                            <select id="from" name="from">
                                 <option value="0">Select Destination:</option>
-                                <option value="nyc">New York City</option>
-                                <option value="mia">Miami</option>
-                                <option value="hawaii">Hawaii</option>
-                                <option value="dubai">Dubai</option>
-                                <option value="spain">Spain</option>
-                                <option value="italy">Italy</option>
+                                <option value="NYC">New York City</option>
+                                <option value="ATL">Atlanta</option>
+                                <option value="LHR">London</option>
+                                <option value="MUC">Munich</option>
+                                <option value="YYZ">Toronto</option>
                             </select>
 
                     </div>
                     <div class="info-box" id="arrive-box">
                         <label for="">ARRIVING AT</label>
-                            <select>
+                            <select name="dest">
                                 <option value="0">Select Destination:</option>
-                                <option value="nyc">New York City</option>
-                                <option value="mia">Miami</option>
-                                <option value="hawaii">Hawaii</option>
-                                <option value="dubai">Dubai</option>
-                                <option value="spain">Spain</option>
-                                <option value="italy">Italy</option>
+                                <option value="IST">Istanbul</option>
+                                <option value="LAX">Los Angeles</option>
+                                <option value="LHR">London</option>
+                                <option value="CMP">Sri Lanka</option>
+                                <option value="DXB">Dubai</option>
+                                <option value="CDG">Paris</option>
                             </select>
                     </div>
                 </div>
@@ -66,22 +58,25 @@ if(!$_SESSION['OneWay']){
                 <div id="flight-dates">
                 <div class="info-box">
                     <label for="">LEAVING ON</label>
-                    <input class="calendar" type="date" >
+                    <input class="calendar" type="date" name="date">
                 </div>
                 
                 </div>
 
                 <!-- SEARCH BUTTON -->
             
+            <a href="./flightResults.php">
                 <div id="flight-search" >
                     <div class="info-box" ></div>
-                        <input type="submit" id="search-flight" value="SEARCH FLIGHTS"/>
+                        <input type="submit" id="search-flight" value="SEARCH FLIGHTS" onclick="location.replace('./flightResults.php'); "/>
                     </div>
-                </div>               
+                </div>
+            </a>
+                
             </form> 
             </div>
             </section>
         </div>
-    
+
 </body>
 </html>

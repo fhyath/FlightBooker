@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+<?php
+$localhost = "localhost";
+$username = "root";
+$password = "";
+$dbname = "spotdb";
+$con = new mysqli($localhost, $username, $password, $dbname);
+if( $con->connect_error){
+    die('Error: ' . $con->connect_error);
+}
+$sql = "SELECT * FROM lot, reservation where lot.LOT_ID = reservation.LOT_ID";
+if( isset($_POST['from']) && isset($_POST['time']) && isset($_POST['date']) ){
+    $from = mysqli_real_escape_string($con, htmlspecialchars($_POST['from']));
+	$date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
+    $sql = "SELECT * FROM lot, reservation WHERE LOT_ID ='$from' and DEPART_TIME LIKE '$date%' and lot.LOT_ID = reservation.LOT_ID ";
+}
+$result = $con->query($sql);
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
