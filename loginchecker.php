@@ -19,7 +19,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
         if(mysqli_num_rows($result)==1){
             session_start();
             $_SESSION['OneWay'] = 'true';
-            header('location:flights.php?login=success');
+            header("location:flights.php?login=success");
         } else{
             header('location:login.php?login=failed');
         }
