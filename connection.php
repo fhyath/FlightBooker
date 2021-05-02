@@ -1,5 +1,5 @@
 <?php
-include debug.php;
+include "debug.php";
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -12,20 +12,22 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully";
+console_log("Connected successfully");
 
-$sql = "DELETE FROM CUSTOMERS WHERE CUST_ID = '1';";
-$sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-VALUES ( '1','john@example.com', 'John', 'Doe', 'JD21');";
-
-
-$sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-VALUES ( '2','joemama@example.com', 'Joe', 'Mama', 'JM34');";
-
-$sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-VALUES ( '3','joemadwdma@example.com', 'Jdwoe', 'wMama', 'JMwd34');";
+// $sql = "INSERT INTO CUSTOMERS ( EMAIL, FNAME, LNAME, PWD)
+// VALUES ( 'joemama@sccs.com', 'cs', 'cscs', 'eer23')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$conn->close();
 
 
+
+
+console_log("testing");
+console_log($sql);
 
 // if ($conn->query($sql) === TRUE) {
 //   console.log("\nNew record created successfully");
@@ -33,22 +35,21 @@ VALUES ( '3','joemadwdma@example.com', 'Jdwoe', 'wMama', 'JMwd34');";
 //   console.log("Error: ", $sql, "<br>", $conn->error)
 // }
 
-if ($conn -> multi_query($sql)) {
-    do {
-      // Store first result set
-      if ($result = $conn -> store_result()) {
-        while ($row = $result -> fetch_row()) {
-          printf("%s\n", $row[0]);
-        }
-       $result -> free_result();
-      }
-      // if there are more result-sets, the print a divider
-      if ($conn -> more_results()) {
-        printf("-------------\n");
-      }
-       //Prepare next result set
-    } while ($conn -> next_result());
-  }
+// if ($conn -> multi_query($sql)) {
+//     do {
+//       // Store first result set
+//       if ($result = $conn -> store_result()) {
+//         while ($row = $result -> fetch_row()) {
+//           printf("%s\n", $row[0]);
+//         }
+//        $result -> free_result();
+//       }
+//       // if there are more result-sets, the print a divider
+//       if ($conn -> more_results()) {
+//         printf("-------------\n");
+//       }
+//        //Prepare next result set
+//     } while ($conn -> next_result());
+//   }
   
 
-$conn->close();

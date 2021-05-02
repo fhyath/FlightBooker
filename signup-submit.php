@@ -1,42 +1,36 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "OneWay";
 
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
 
-<!-- <!DOCTYPE html>
-<html lang="en">
+        $fname = $_POST['firstname'];
+        $lname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Changa&family=Press+Start+2P&family=Quantico&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="login.css" />
-
-    <title>One-Way</title>
-    </head>
-
-
-    <body> -->
-      <?php
-      
-    include_once 'connection.php';
+        $query = "insert into CUSTOMERS (FNAME,LNAME,EMAIL,PWD) values ('$fname','$lname','$email','$password')";
+        $run = mysqli_query($conn,$query) or die (mysqli_error());
+        if($run){
+         header("Location:login.php?signup=success");    
+        }    
+       
     
-    $customerId= $_POST["custID"];
-    $fname =  $_POST["firstname"];
-    $lname = $_POST["lastname"];
+    else{
+         header("Location:signup.php?signup=failedTRYAGAIN");        
+        }
+    
 
-	$email = $_POST["email"];
-    $password = $_POST["password"];
+?>
 
-    $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-     VALUES 
-    ( '$customerId' , '$email' ,'$fname, '$lname' , '$password');";
-    mysqli_query($conn,$sql);
 
-    if ($conn->query($sql) === TRUE) {
-   printf("\n New record created successfully");
-       header("Location: ./login.php?signup=success");
 
-} else {     
-    printf("Error ", $sql, "<br>", $conn->error);
-};
+
+
+
+
+
+
