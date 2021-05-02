@@ -18,25 +18,44 @@
 
     <body> -->
       <?php
-      
+  
     include_once 'connection.php';
-    
-    $customerId= $_POST["custID"];
-    $fname =  $_POST["firstname"];
+    $customerId=$_POST["custID"];
+    $fname = $_POST["firstname"];
     $lname = $_POST["lastname"];
 
 	$email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-     VALUES 
+    $sql = "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD) VALUES 
     ( '$customerId' , '$email' ,'$fname, '$lname' , '$password');";
-    mysqli_query($conn,$sql);
-
     if ($conn->query($sql) === TRUE) {
-   printf("\n New record created successfully");
+   printf("\nNew record created successfully");
        header("Location: ./login.php?signup=success");
 
-} else {     
-    printf("Error ", $sql, "<br>", $conn->error);
-};
+} else 
+       printf("Error: ", $sql, "<br>", $conn->error)
+
+
+
+
+//        <!-- <div class="headerBar">
+//         <img src="img/logo.png" alt="">
+//     </div>
+//        <div class="wrapper">
+//         <div class="title2">
+//             Thank you for signing up!</div>
+//         <form action="#">
+           
+//             <div class="signup-link">
+//                 <h5><a href="login.php">Please Log In To Fly</a></h5>
+//         </form>
+//     </div>
+  
+
+    
+   
+// </body>
+
+
+// </html> -->

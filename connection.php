@@ -22,9 +22,6 @@ VALUES ( '1','john@example.com', 'John', 'Doe', 'JD21');";
 $sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
 VALUES ( '2','joemama@example.com', 'Joe', 'Mama', 'JM34');";
 
-$sql .= "INSERT INTO CUSTOMERS (CUST_ID, EMAIL, FNAME, LNAME, PWD)
-VALUES ( '3','joemadwdma@example.com', 'Jdwoe', 'wMama', 'JMwd34');";
-
 
 
 // if ($conn->query($sql) === TRUE) {
