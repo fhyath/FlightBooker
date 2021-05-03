@@ -2,9 +2,10 @@
 ?>
 <!DOCTYPE html>
 <?php
+include "debug.php";
 $localhost = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
@@ -52,7 +53,7 @@ $result = $con->query($sql);
         </div>
         <div class="enteredDate">
             <img class="cal" src="img/cal.png" alt="">
-            <p> <span class="flyingFrom">Class</span>  <br> <?php echo $class;$_SESSION["class"] = $class;?></p>
+            <p> <span class="flyingFrom">Class</span>  <br> <?php echo $class;$_SESSION["class"] = $_POST['class'];?></p>
         </div>
         <!-- <div class="enteredDate carType">
                     <select>

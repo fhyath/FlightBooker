@@ -6,8 +6,8 @@ include 'debug.php';
 console_log($_SESSION["class"]);
 $localhost = "localhost";
 $username = "root";
-$password = "";
-$dbname = "spotdb";
+$password = "root";
+$dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
     die('Error: ' . $con->connect_error);
