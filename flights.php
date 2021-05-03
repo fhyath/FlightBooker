@@ -10,7 +10,6 @@ if (!$_SESSION['user']) {
     header("location:Profile.html");
     // prevent further execution, should there be more code that follows
 }
-echo "Welcome " . $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
