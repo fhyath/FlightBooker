@@ -4,6 +4,7 @@
 <?php
 include "debug.php";
 include "getCity.php";
+include "getClass.php";
 $localhost = "localhost";
 $username = "root";
 $password = "root";
@@ -17,11 +18,14 @@ if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) && i
     $from = mysqli_real_escape_string($con, htmlspecialchars($_POST['from']));
 	$dest = mysqli_real_escape_string($con, htmlspecialchars($_POST['dest']));
     $date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
-    $class = mysqli_real_escape_string($con, htmlspecialchars($_POST['class']));
-
-    $sql = "SELECT * FROM flights, seats WHERE START_LOC ='$from'and END_LOC ='$dest' and DEPART_TIME LIKE '$date%' and flights.FLIGHT_ID = seats.FLIGHT_ID ";
+    $class = $_POST["class"];
+    $classAvail = mysqli_real_escape_string($con, htmlspecialchars(getClass($_POST['class'])));
+    console_log($classAvail);
+    $sql = "SELECT * FROM flights, seats WHERE START_LOC ='$from'and END_LOC ='$dest' and DEPART_TIME LIKE '$date%' and flights.FLIGHT_ID = seats.FLIGHT_ID and $classAvail > 0 ";
+    console_log($sql);
 }
 $result = $con->query($sql);
+console_log($result);
 
 
 ?>

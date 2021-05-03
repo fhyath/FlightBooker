@@ -47,17 +47,19 @@ if( $con->connect_error){
             <th scope="col">Flight</th>
             <th scope="col">Depart</th>
             <th scope="col">Land</th>
-            <th scope="col">class</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Class</th>
             <th scope="col">Travel Time</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td data-label="Account">Flight <?= $_SESSION["flight_num"]?></td>
+            <td data-label="Account"><?= $_SESSION["flight_num"]?></td>
             <td data-label="Due Date"><?= $_SESSION["depart_time"]?></td>
             <td data-label="Due Date"><?= $_SESSION["land_time"]?></td>
             <td data-label="Amount">$<?= $_SESSION["price"]?></td>
-            <td data-label="Period"><?= $_SESSION["depart_time"]?> - <?= $_SESSION["land_time"]?></td>
+            <td data-label="Amount"><?= $_SESSION["class"]?></td>
+            <td data-label="Period"><?php echo date('H:i',(strtotime(explode(":00",explode(" ",$_SESSION["land_time"])[1])[0]) - strtotime(explode(":00",explode(" ",$_SESSION["depart_time"])[1])[0])))?></td>
           </tr>
           
         </tbody>

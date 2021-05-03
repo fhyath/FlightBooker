@@ -108,7 +108,7 @@ if( isset($_POST['submit1'] )){
                   <div class="details">
                     <div>
                       <span class="title">Flight</span>
-                      <span class="flight" style="padding: 0px !important;"><?= $_SESSION["flight_num"]?></span>
+                      <span style="padding: 0px !important;"><?= $_SESSION["flight_num"]?></span>
                     </div>
                     <div>
                       <span class="title"></span>

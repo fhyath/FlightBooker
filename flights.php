@@ -44,7 +44,7 @@ echo "Welcome " . $_SESSION['user'];
                 <h1>FIND THE PERFECT FLIGHT FOR YOU!</h1>
             </div>
             <section>
-                <div class="flight" id="flightbox">
+                <div class="flight" id="flightbox" style="padding: 20px !important;">
                     <form id="flight-form" method="post" action="./flightResults.php">
 
                         <!-- FROM/TO -->
