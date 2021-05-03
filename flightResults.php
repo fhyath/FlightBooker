@@ -40,7 +40,9 @@ console_log($result);
 </head>
 <body>
     <div class="headerBar">
-        <img src="img/logo.png" alt="">
+        <a href="./login.php">
+            <img src="img/logo.png" alt="">
+        </a>
         <a href="./Profile.html">
           <img src="img/user.png" class="user" alt="">
         </a>

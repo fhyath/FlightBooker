@@ -26,7 +26,9 @@ if( $con->connect_error){
 </head>
 <body class="paymentBody">
     <div class="headerBar">
-        <img src="img/logo.png" alt="">
+        <a href="./login.php">
+            <img src="img/logo.png" alt="">
+        </a>
         <a href="./Profile.php">
           <img src="img/user.png" class="user" alt="">
         </a>

@@ -29,24 +29,27 @@ if( isset($_POST['submit1'] )){
     $availVar = "E_AVAILABILITY";
  }
 
+ 
+  $currentTime = date("Y-m-d H:i:s",time());
+
   $update = "UPDATE seats
                   set $availVar = $availVar-1
                   WHERE SEAT_ID = $num;";
 
-  $insert = "INSERT INTO orders (EMAIL, FLIGHT_ID,PRICE) VALUES('{$_SESSION['user']}','{$_SESSION['flight_id']}','{$_SESSION['price']}')";
+  $insert = "INSERT INTO orders (EMAIL, FLIGHT_ID,PRICE,ORDER_DATE) VALUES('{$_SESSION['user']}','{$_SESSION['flight_id']}','{$_SESSION['price']}','{$currentTime}')";
   console_log($insert);
   
-  // echo $update;
-  // if(mysqli_query($con, $update)){
-  //    // echo "Records added successfully.";
-  // } else{
-  //     echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
-  // }
+  echo $update;
+  if(mysqli_query($con, $update)){
+     // echo "Records added successfully.";
+  } else{
+      echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
+  }
 
   if(mysqli_query($con, $insert)){
     // echo "Records added successfully.";
  } else{
-     echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
+     echo "ERROR: Could not able to execute $insert. " . mysqli_error($con);
  }
 }
 
@@ -56,14 +59,16 @@ if( isset($_POST['submit1'] )){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <title>Receipt</title>  
 </head>
 
 
     <body class="recieptbg">
         <div class="headerBar">
-            <img src="img/logo.png" alt="">
+            <a href="./login.php">
+                <img src="img/logo.png" alt="">
+            </a>
             <a href="./Profile.php">
               <img src="img/user.png" class="user" alt="">
             </a>
