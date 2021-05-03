@@ -1,4 +1,43 @@
+<?php session_start();
+
+?>
+
 <!DOCTYPE html>
+<?php
+$localhost = "localhost";
+$username = "root";
+$password = "";
+$dbname = "oneway";
+$con = new mysqli($localhost, $username, $password, $dbname);
+if( $con->connect_error){
+    die('Error: ' . $con->connect_error);
+}
+
+if( isset($_POST['submit1'] )){
+  $num = $_SESSION["flight_id"];
+  $classtype = $_SESSION["class"];
+  //echo $classtype;
+  if ($classtype == "business"){
+    $availVar = "B_AVAILABILITY";
+  }
+ else if ($classtype == "fc"){
+    $availVar = "FC_AVAILABILITY";
+ }else{
+    $availVar = "E_AVAILABILITY";
+ }
+
+  $update = "UPDATE seats
+                  set $availVar = $availVar-1
+                  WHERE SEAT_ID = $num;";
+  // echo $update;
+  if(mysqli_query($con, $update)){
+     // echo "Records added successfully.";
+  } else{
+      echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
+  }
+}
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +47,7 @@
     <title>Receipt</title>  
 </head>
 
+
     <body class="recieptbg">
         <div class="headerBar">
             <img src="img/logo.png" alt="">
@@ -16,6 +56,7 @@
             </a>
         </div>
         <br><br><br><br><br><br>
+
         <div class="reciept">
             <div class="thanks">
                 <p>Thank you for choosing <br> <img src="img/logo.png" alt="">

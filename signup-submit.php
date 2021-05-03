@@ -1,4 +1,5 @@
 <?php
+include "debug.php";
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -13,7 +14,8 @@ $conn = new mysqli($servername, $username, $password,$dbname);
         $password = $_POST['password'];
 
         $query = "insert into CUSTOMERS (FNAME,LNAME,EMAIL,PWD) values ('$fname','$lname','$email','$password')";
-        $run = mysqli_query($conn,$query) or die (mysqli_error());
+        $run = mysqli_query($conn,$query) or printf("this is an error" . mysqli_error($conn));
+        console_log($run);
         if($run){
          header("Location:login.php?signup=success");    
         }    
@@ -25,12 +27,3 @@ $conn = new mysqli($servername, $username, $password,$dbname);
     
 
 ?>
-
-
-
-
-
-
-
-
-

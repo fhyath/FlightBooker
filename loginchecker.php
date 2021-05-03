@@ -1,6 +1,7 @@
 
 <?php
 // if($_POST){
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -16,11 +17,12 @@ $conn = new mysqli($servername, $username, $password,$dbname);
         $password = $_POST['password'];
         $query = "SELECT * from CUSTOMERS where EMAIL='$email' and PWD='$password'";
         $result = mysqli_query($conn,$query);
+        $_SESSION['OneWay'] = 'false';
         if(mysqli_num_rows($result)==1){
-            session_start();
-            $_SESSION['OneWay'] = 'true';
-            header("location:flights.php?login=success");
+            $_SESSION['OneWay'] = true;
+            header('location:flights.php?login=success');
         } else{
+            $_SESSION['OneWay'] = false;
             header('location:login.php?login=failed');
         }
 // }
