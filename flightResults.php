@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <?php
 include "debug.php";
+include "getCity.php";
 $localhost = "localhost";
 $username = "root";
 $password = "root";
@@ -85,15 +86,15 @@ $result = $con->query($sql);
                     <article class="flightCard flightList__item">
                     <div class="flightCard__departure">
                         <!-- DEPATURE TIME -->
-                        <time class="flightCard__time"><?php $_SESSION["flight_num"] = $row['FLIGHT_NUM']; ?>10:30 AM</time>
+                        <time class="flightCard__time"><?php $_SESSION["flight_num"] = $row['FLIGHT_NUM'];echo explode(":00",explode(" ",$_SESSION["depart_time"])[1])[0]; ?></time>
                         <!-- DEPART LOCATION -->
-                        <h2 class="flightCard__city"><?php $_SESSION["start_loc"] = $row['START_LOC']; echo $row['START_LOC']; ?></h2>
+                        <h2 class="flightCard__city"><?php $_SESSION["start_loc"] = $row['START_LOC']; echo getCity($row['START_LOC']); ?></h2>
                         <!-- DEPART DATE -->
-                        <time class="flightCard__day"><?php $_SESSION["depart_time"] = $row['DEPART_TIME']; echo $row['DEPART_TIME'];   $_SESSION["flight_id"] = $row['FLIGHT_ID'];?></time> 
+                        <time class="flightCard__day"><?php $_SESSION["depart_time"] = $row['DEPART_TIME']; echo explode(" ",$_SESSION["depart_time"])[0] ;   $_SESSION["flight_id"] = $row['FLIGHT_ID'];?></time> 
                     </div>
                     <div class="flightCard__route">
                         <!-- FLIGHT DURATION -->
-                        <p class="flightCard__duration">1hr 50m</p>
+                        <p class="flightCard__duration"><?php echo date('H:i',(strtotime(explode(":00",explode(" ",$_SESSION["land_time"])[1])[0]) - strtotime(explode(":00",explode(" ",$_SESSION["depart_time"])[1])[0])))?></p>
                         <div class="flightCard__route-line route-line" >
                         <div class="route-line__stop route-line__start" ></div>
                         <div class="route-line__stop route-line__end" ></div>
@@ -101,9 +102,9 @@ $result = $con->query($sql);
                         <p class="flightCard__type">Non-stop</p>
                     </div>
                     <div class="flightCard__arrival">
-                        <time class="flightCard__time">10:30 AM</time>
-                        <h2 class="flightCard__city"><?php $_SESSION["end_loc"] = $row['END_LOC']; echo $row['END_LOC']; ?></h2>
-                        <time class="flightCard__day"><?php $_SESSION["land_time"] = $row['LAND_TIME']; echo $row['LAND_TIME']; ?></time>
+                        <time class="flightCard__time"><?php echo explode(":00",explode(" ",$_SESSION["land_time"])[1])[0] ?></time>
+                        <h2 class="flightCard__city"><?php $_SESSION["end_loc"] = $row['END_LOC']; echo getCity($row['END_LOC']); ?></h2>
+                        <time class="flightCard__day"><?php $_SESSION["land_time"] = $row['LAND_TIME']; echo explode(" ",$_SESSION["depart_time"])[0]; ?></time>
                     </div>
                     <div class="flightCard__action">
                         <p class="flightCard__price price"><sup>$</sup><?php $_SESSION["price"] = $row['E_PRICE']; echo $row['E_PRICE']; ?><sub>USD</sub></p>
