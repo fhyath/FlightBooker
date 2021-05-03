@@ -12,14 +12,17 @@ if( $con->connect_error){
     die('Error: ' . $con->connect_error);
 }
 $sql = "SELECT * FROM flights, seats where flights.FLIGHT_ID = seats.FLIGHT_ID";
-if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) && isset($_POST['class']) ){
+if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) && isset($_POST['class'])){
     $from = mysqli_real_escape_string($con, htmlspecialchars($_POST['from']));
 	$dest = mysqli_real_escape_string($con, htmlspecialchars($_POST['dest']));
     $date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
     $class = mysqli_real_escape_string($con, htmlspecialchars($_POST['class']));
+
     $sql = "SELECT * FROM flights, seats WHERE START_LOC ='$from'and END_LOC ='$dest' and DEPART_TIME LIKE '$date%' and flights.FLIGHT_ID = seats.FLIGHT_ID ";
 }
 $result = $con->query($sql);
+
+
 ?>
 
 <html lang="en">
@@ -86,7 +89,7 @@ $result = $con->query($sql);
                         <!-- DEPART LOCATION -->
                         <h2 class="flightCard__city"><?php $_SESSION["start_loc"] = $row['START_LOC']; echo $row['START_LOC']; ?></h2>
                         <!-- DEPART DATE -->
-                        <time class="flightCard__day"><?php $_SESSION["depart_time"] = $row['DEPART_TIME']; echo $row['DEPART_TIME']; ?></time> 
+                        <time class="flightCard__day"><?php $_SESSION["depart_time"] = $row['DEPART_TIME']; echo $row['DEPART_TIME'];   $_SESSION["flight_id"] = $row['FLIGHT_ID'];?></time> 
                     </div>
                     <div class="flightCard__route">
                         <!-- FLIGHT DURATION -->

@@ -6,19 +6,12 @@ include 'debug.php';
 console_log($_SESSION["class"]);
 $localhost = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
     die('Error: ' . $con->connect_error);
 }
-$sql = "SELECT * FROM lot, reservation where lot.LOT_ID = reservation.LOT_ID";
-if( isset($_POST['from']) && isset($_POST['time']) && isset($_POST['date']) ){
-    $from = mysqli_real_escape_string($con, htmlspecialchars($_POST['from']));
-	$date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
-    $sql = "SELECT * FROM lot, reservation WHERE LOT_ID ='$from' and DEPART_TIME LIKE '$date%' and lot.LOT_ID = reservation.LOT_ID ";
-}
-$result = $con->query($sql);
 ?>
 <html lang="en">
 <head>
@@ -101,7 +94,7 @@ $result = $con->query($sql);
                 <span  class = "card" id="amex"></span>
                 <span  class = "card" id="discover"></span>
             </div>
-            <form action="./Reciept.html">
+            <form action="Reciept.php" method = "post">
                 <div class="formGroup">
                     <label >Payment amount</label>
                     <div class="amount-placeholder">
@@ -133,8 +126,8 @@ $result = $con->query($sql);
                         <input id="SecurityCode" class="form-control" type="text" ></input>
                     </div>
 
-                <a href="./Reciept.html">
-                    <button id="PayButton" type="submit" class="button" onclick="location.replace('./Reciept.html'); console.log('Clicked');">
+                <a href="Reciept.php">
+                    <button id="PayButton" name = "submit1" type="submit" class="button" onclick="location.replace('./Reciept.php'); console.log('Clicked');">
                         <span class="submit-button-lock"></span>
                         <span class="align-middle" >Pay $<?= $_SESSION["price"]?></span>
                     </button>

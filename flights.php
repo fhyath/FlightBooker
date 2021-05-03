@@ -4,11 +4,11 @@
 include "debug.php";
 session_start();
 console_log($_SESSION["OneWay"]);
-if (!$_SESSION['OneWay']) {
-    console_log("inside of if");
-    console_log($_SESSION['OneWay']);
-    header("Location:login.php");
-}
+// if (!$_SESSION['OneWay']) {
+//     console_log("inside of if");
+//     console_log($_SESSION['OneWay']);
+//     header("Location:login.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
