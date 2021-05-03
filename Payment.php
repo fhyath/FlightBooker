@@ -1,8 +1,9 @@
 <?php session_start();
-
 ?>
 <!DOCTYPE html>
 <?php
+include 'debug.php';
+console_log($_SESSION["class"]);
 $localhost = "localhost";
 $username = "root";
 $password = "";
