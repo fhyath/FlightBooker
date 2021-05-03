@@ -3,7 +3,7 @@
 $localhost = "localhost";
 $username = "root";
 $password = "";
-$dbname = "spotdb";
+$dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
     die('Error: ' . $con->connect_error);
