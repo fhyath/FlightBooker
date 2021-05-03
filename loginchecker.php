@@ -4,7 +4,7 @@
 session_start();
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "OneWay";
 
 // Create connection

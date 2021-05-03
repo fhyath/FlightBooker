@@ -2,8 +2,8 @@
 include "debug.php";
 $servername = "localhost";
 $username = "root";
-$password = "root";
-$dbname = "OneWay";
+$password = "";
+$dbname = "oneway";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);

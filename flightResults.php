@@ -7,7 +7,7 @@ include "getCity.php";
 include "getClass.php";
 $localhost = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "OneWay";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){

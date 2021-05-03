@@ -2,7 +2,7 @@
 include "debug.php";
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "OneWay";
 
 // Create connection
