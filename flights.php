@@ -6,8 +6,8 @@ session_start();
 // if(!$_SESSION['OneWay']){
 //     header('location:login.php?logintoaccess');
 // }
-if (!$_SESSION['user']) {
-    header("location:Profile.html");
+// if (!$_SESSION['user']) {
+//     header("location:Profile.html");
     // prevent further execution, should there be more code that follows
 }
 // echo "Welcome ".$_SESSION['user'];
