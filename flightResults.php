@@ -11,11 +11,12 @@ if( $con->connect_error){
     die('Error: ' . $con->connect_error);
 }
 $sql = "SELECT * FROM flights, seats where flights.FLIGHT_ID = seats.FLIGHT_ID";
-if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) && isset($_POST['class']) ){
+if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) && isset($_POST['class'])){
     $from = mysqli_real_escape_string($con, htmlspecialchars($_POST['from']));
 	$dest = mysqli_real_escape_string($con, htmlspecialchars($_POST['dest']));
     $date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
     $class = mysqli_real_escape_string($con, htmlspecialchars($_POST['class']));
+
     $sql = "SELECT * FROM flights, seats WHERE START_LOC ='$from'and END_LOC ='$dest' and DEPART_TIME LIKE '$date%' and flights.FLIGHT_ID = seats.FLIGHT_ID ";
 }
 $result = $con->query($sql);

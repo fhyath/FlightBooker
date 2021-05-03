@@ -15,11 +15,23 @@ if( $con->connect_error){
 
 if( isset($_POST['submit1'] )){
   $num = $_SESSION["flight_id"];
+  $classtype = $_SESSION["class"];
+  //echo $classtype;
+  if ($classtype == "business"){
+    $availVar = "B_AVAILABILITY";
+  }
+ else if ($classtype == "fc"){
+    $availVar = "FC_AVAILABILITY";
+ }else{
+    $availVar = "E_AVAILABILITY";
+ }
+
   $update = "UPDATE seats
-                  set E_AVAILABILITY = E_AVAILABILITY-1
-                  WHERE SEAT_ID = '$num';";
+                  set $availVar = $availVar-1
+                  WHERE SEAT_ID = $num;";
+  // echo $update;
   if(mysqli_query($con, $update)){
-      echo "Records added successfully.";
+     // echo "Records added successfully.";
   } else{
       echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
   }
