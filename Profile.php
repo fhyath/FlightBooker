@@ -1,42 +1,6 @@
 <?php
-session_start();
-
-// if($_POST){
-// $servername = "localhost";
-// $username = "root";
-// $password = "root";
-// $dbname = "OneWay";
-
-// // Create connection
-// $conn = new mysqli($servername, $username, $password,$dbname);
-
-
-// if (isset($_POST['submit'])){
-//     if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])){
-    
-//         $email = $_POST['email'];
-//         $password = $_POST['password'];
-//         $query = "SELECT * from CUSTOMERS where EMAIL='$email' and PWD='$password'";
-//         $result = mysqli_query($conn,$query);
-//         if(mysqli_num_rows($result)==1){
-//             session_start();
-//             // $_SESSION['OneWay'] = 'true';
-//             $_SESSION['user'] = $email;
-
-//             header('location:flights.php?login=success');
-//         } else{
-//             header('location:login.php?login=failed');
-//         }
-// // }
-
-    
-    
-
+session_start();   
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +14,7 @@ session_start();
 
     <div class="headerBar">
         <img src="img/logo.png" alt="">
-        <a href="./Profile.html">
+        <a href="./Profile.php">
           <img src="img/user.png" class="user" alt="">
         </a>
     </div>
@@ -58,28 +22,22 @@ session_start();
         <div class="userCard">
             <img src="img/profile.png" alt="">
 
-            <p><?php 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "OneWay";
+            <p><?php         
+ $con = mysqli_connect("localhost", "root", "root", "OneWay");
+   //Retrieving the contents of the table
+   $res = mysqli_query($con, "SELECT FNAME, LNAME FROM CUSTOMERS where EMAIL='{$_SESSION['user']}'");
 
-
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-
-$query= mysqli_query($connection, "SELECT FNAME from CUSTOMERS where EMAIL='$_SESSION[‘user’]' ");
-
-$fetch=mysqli_fetch_assoc($connection, $query);
-
-$name= $fetch['FNAME'];
-
-// $result = mysqli_query( "SELECT FNAME from CUSTOMERS where EMAIL='dl@gmail.com' ");
-// $row = mysqli_fetch_row($result);
-// echo $row[0];
+   while ($row = mysqli_fetch_row($res)) {
+      echo("".$row[0]." ".$row[1]."\n");
+  
+   }
+   //Closing the statement
+   mysqli_free_result($res);
+ //Closing the connection
+   mysqli_close($con);
  ?> </p>
 
-            <p class="email"><?php echo $_SESSION['user']; ?>.</p>
+            <p class="email"><?php echo $_SESSION['user']; ?></p>
             <p> <span>3</span> Past Flights</p>
         </div>
         <div class="acctHeader">

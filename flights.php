@@ -4,12 +4,23 @@
 // Takes the user to the login page if they try to access the flights.php without loggin in 
 include "debug.php";
 session_start();
+<<<<<<< HEAD
 // console_log($_SESSION["OneWay"]);
 if (!$_SESSION['OneWay']) {
     console_log("inside of if");
     console_log($_SESSION['OneWay']);
     header("Location:login.php");
 }
+=======
+// if(!$_SESSION['OneWay']){
+//     header('location:login.php?logintoaccess');
+// }
+// if (!$_SESSION['user']) {
+//     header("location:Profile.html");
+    // prevent further execution, should there be more code that follows
+// }
+// echo "Welcome ".$_SESSION['user'];
+>>>>>>> b32e55a63d7ed1d73a0dd264a634eec242c2ea40
 ?>
 <!DOCTYPE html>
 <html lang="en">
