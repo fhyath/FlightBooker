@@ -1,4 +1,7 @@
-
+<?php 
+ session_start();
+ $_SESSION["OneWay"] = false
+?>
 <!DOCTYPE html>
 <html lang="en">
 

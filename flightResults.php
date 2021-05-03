@@ -11,10 +11,11 @@ if( $con->connect_error){
     die('Error: ' . $con->connect_error);
 }
 $sql = "SELECT * FROM flights, seats where flights.FLIGHT_ID = seats.FLIGHT_ID";
-if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) ){
+if( isset($_POST['from']) && isset($_POST['dest']) && isset($_POST['date']) && isset($_POST['class']) ){
     $from = mysqli_real_escape_string($con, htmlspecialchars($_POST['from']));
 	$dest = mysqli_real_escape_string($con, htmlspecialchars($_POST['dest']));
-	$date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
+    $date = mysqli_real_escape_string($con, htmlspecialchars($_POST['date']));
+    $class = mysqli_real_escape_string($con, htmlspecialchars($_POST['class']));
     $sql = "SELECT * FROM flights, seats WHERE START_LOC ='$from'and END_LOC ='$dest' and DEPART_TIME LIKE '$date%' and flights.FLIGHT_ID = seats.FLIGHT_ID ";
 }
 $result = $con->query($sql);
@@ -49,17 +50,19 @@ $result = $con->query($sql);
             <img class="cal" src="img/cal.png" alt="">
             <p> <span class="flyingFrom">Departing</span>  <br> <?php echo $date?></p>
         </div>
-        <div class="enteredDate carType">
+        <div class="enteredDate">
+            <img class="cal" src="img/cal.png" alt="">
+            <p> <span class="flyingFrom">Class</span>  <br> <?php echo $class;$_SESSION["class"] = $class;?></p>
+        </div>
+        <!-- <div class="enteredDate carType">
                     <select>
                         <option value="0">Select Class:</option>
                         <option value="economy">Economy</option>
                         <option value="business">Business</option>
                         <option value="first">First-Class</option>
-                       
                     </select>
 
-            <!-- </div> -->
-        </div>
+        </div> -->
     </div>
 
     <div class="wrap2">
