@@ -1,10 +1,12 @@
-<?php session_start();
-
+<?php 
+session_start();
+include "getCity.php";
 ?>
 
 <!DOCTYPE html>
 <?php
 var_dump($_SESSION);
+include "debug.php";
 $localhost = "localhost";
 $username = "root";
 $password = "root";
@@ -31,13 +33,21 @@ if( isset($_POST['submit1'] )){
                   set $availVar = $availVar-1
                   WHERE SEAT_ID = $num;";
 
-  // $order = "INSERT INTO ORDERS VALUEs(  "
+  $insert = "INSERT INTO orders (EMAIL, FLIGHT_ID,PRICE) VALUES('{$_SESSION['user']}','{$_SESSION['flight_id']}','{$_SESSION['price']}')";
+  console_log($insert);
+  
   // echo $update;
-  if(mysqli_query($con, $update)){
-     // echo "Records added successfully.";
-  } else{
-      echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
-  }
+  // if(mysqli_query($con, $update)){
+  //    // echo "Records added successfully.";
+  // } else{
+  //     echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
+  // }
+
+  if(mysqli_query($con, $insert)){
+    // echo "Records added successfully.";
+ } else{
+     echo "ERROR: Could not able to execute $update. " . mysqli_error($con);
+ }
 }
 
 ?>
@@ -78,12 +88,12 @@ if( isset($_POST['submit1'] )){
                 <div class="airports">
                   <div class="from">
                     <span><?= $_SESSION["start_loc"] ?></span>
-                    <span class="date"><?php $_SESSION["depart_time"]?></span>
+                    <span class="date"><?php echo explode(":00",explode(" ",$_SESSION["depart_time"])[1])[0] ?></span>
                   </div>
                   <i class="fa fa-plane"></i>
                   <div class="to">
-                    <span>RME</span>
-                    <span class="date">01:15</span>
+                    <span><?= $_SESSION["end_loc"]?></span>
+                    <span class="date"><?php echo explode(":00",explode(" ",$_SESSION["land_time"])[1])[0] ?></span>
                   </div>       
                 </div>
                 <!-- /Airports -->
@@ -91,26 +101,26 @@ if( isset($_POST['submit1'] )){
                 <div class="info">
                   <div class="your-trip">
                     <span class="title">Your Trip</span>
-                    <span class="from">BARCELONA</span>
-                    <span class="to">ROME</span>
+                    <span class="from"><?php echo getCity($_SESSION["start_loc"])?></span>
+                    <span class="to"><?php echo getCity($_SESSION["end_loc"])?></span>
                   </div>
                   
                   <div class="details">
                     <div>
                       <span class="title">Flight</span>
-                      <span class="flight">12283</span>
+                      <span class="flight" style="padding: 0px !important;"><?= $_SESSION["flight_num"]?></span>
                     </div>
                     <div>
-                      <span class="title">Gate</span>
-                      <span class="gate">49</span>
+                      <span class="title"></span>
+                      <span class="gate"></span>
                     </div>
                     <div>
-                      <span class="title">Seat</span>
-                      <span class="seat">7B</span>
+                      <span class="title"></span>
+                      <span class="seat"></span>
                     </div>
                     <div>
                       <span class="title">Board at</span>
-                      <span class="board-at">10:30</span>
+                      <span class="board-at"><?php echo date('H:i',(strtotime(explode(":00",explode(" ",$_SESSION["depart_time"])[1])[0])-3600)) ?></span>
                     </div>
                     
                   </div>
