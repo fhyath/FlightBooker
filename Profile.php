@@ -1,23 +1,36 @@
 <?php
-include 'debug.php';
 session_start();
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "OneWay";
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-if( $con->connect_error){
-    die('Error: ' . $con->connect_error);
-}
-console_log($_SESSION["email"]);
 
-$query= mysqli_query($connection, "SELECT FNAME from CUSTOMERS where EMAIL='$_SESSION[‘user’]' ");
+// if($_POST){
+// $servername = "localhost";
+// $username = "root";
+// $password = "root";
+// $dbname = "OneWay";
 
-console_log($query);
-$fetch=mysqli_fetch_assoc($connection, $query);
+// // Create connection
+// $conn = new mysqli($servername, $username, $password,$dbname);
 
-$name= $fetch['FNAME'];
+
+// if (isset($_POST['submit'])){
+//     if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['email']) && !empty($_POST['password'])){
+    
+//         $email = $_POST['email'];
+//         $password = $_POST['password'];
+//         $query = "SELECT * from CUSTOMERS where EMAIL='$email' and PWD='$password'";
+//         $result = mysqli_query($conn,$query);
+//         if(mysqli_num_rows($result)==1){
+//             session_start();
+//             // $_SESSION['OneWay'] = 'true';
+//             $_SESSION['user'] = $email;
+
+//             header('location:flights.php?login=success');
+//         } else{
+//             header('location:login.php?login=failed');
+//         }
+// // }
+
+    
+    
 
 ?>
 
@@ -45,7 +58,26 @@ $name= $fetch['FNAME'];
         <div class="userCard">
             <img src="img/profile.png" alt="">
 
-            <p> </p>
+            <p><?php 
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "OneWay";
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+
+$query= mysqli_query($connection, "SELECT FNAME from CUSTOMERS where EMAIL='$_SESSION[‘user’]' ");
+
+$fetch=mysqli_fetch_assoc($connection, $query);
+
+$name= $fetch['FNAME'];
+
+// $result = mysqli_query( "SELECT FNAME from CUSTOMERS where EMAIL='dl@gmail.com' ");
+// $row = mysqli_fetch_row($result);
+// echo $row[0];
+ ?> </p>
 
             <p class="email"><?php echo $_SESSION['user']; ?>.</p>
             <p> <span>3</span> Past Flights</p>
