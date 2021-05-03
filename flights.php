@@ -7,7 +7,7 @@ if (!$_SESSION['OneWay']) {
     header('location:login.php?logintoaccess');
 }
 if (!$_SESSION['user']) {
-    header("location:Profile.html");
+    header("location:Profile.php");
     // prevent further execution, should there be more code that follows
 }
 ?>

@@ -25,9 +25,11 @@ session_start();
             <img src="img/profile.png" alt="">
 
             <p><?php         
- $con = mysqli_connect("localhost", "root", "root", "OneWay");
+ $con = mysqli_connect("localhost", "root", "", "OneWay");
    //Retrieving the contents of the table
    $res = mysqli_query($con, "SELECT FNAME, LNAME FROM CUSTOMERS where EMAIL='{$_SESSION['user']}'");
+
+   $result =  mysqli_query($con, "SELECT count(*)  FROM flights JOIN orders ON flights.FLIGHT_ID = orders.FLIGHT_ID JOIN customers ON customers.EMAIL = orders.EMAIL WHERE orders.EMAIL = '{$_SESSION['user']}'");
 
    while ($row = mysqli_fetch_row($res)) {
       echo("".$row[0]." ".$row[1]."\n");
@@ -39,77 +41,60 @@ session_start();
    mysqli_close($con);
  ?> </p>
 
+
+
             <p class="email"><?php echo $_SESSION['user']; ?></p>
-            <p> <span>3</span> Past Flights</p>
+            <?php
+					while($row1 = $result->fetch_assoc()){
+			?>
+            <p> <span><?php echo $row1["count(*)"]; ?></span> Past Flights</p>
+            <?php }?>
         </div>
         <div class="acctHeader">
             Past Flights
         </div>
+
+        <?php 
+         $con = mysqli_connect("localhost", "root", "", "OneWay");
+         $res =  mysqli_query($con,"SELECT FLIGHT_NUM, START_LOC, DEPART_TIME, END_LOC, LAND_TIME, orders.price
+         FROM flights
+         JOIN orders ON flights.FLIGHT_ID = orders.FLIGHT_ID
+         JOIN customers ON customers.EMAIL = orders.EMAIL
+            WHERE orders.EMAIL = '{$_SESSION['user']}'");
+
+
+        ?>
+
+
+        
         <div class="accountInfo">
+        <?php
+					while($row = $res->fetch_assoc()){
+			?>
             <div class="item">
                 <div class="itemImg">
                     <img src="img/plane.png" alt="">
                 </div>
                 <div class="previous"> 
-                    <p><span class="prevFlight">Flight 25695 (04/21/2021)</span> 
+                    <p><span class="prevFlight">Flight <?php echo $row['FLIGHT_NUM']; ?></span> 
                     </p> 
                     <br>
                     <div class="depArr">
-                        <p><span class="city">Depature: Barcelona (10:30 AM) </span> <img src="img/arrow.png" alt=""> </p>
-                        <p><span class="city">Arrival: Rome (3:30 PM) </span> </p>
+                        <p><span class="city">Depature:  <?php echo $row['START_LOC'];?> <?php echo explode(":00",explode(" ",$row["DEPART_TIME"])[1])[0]; ?></span> <img src="img/arrow.png" alt=""> </p>
+                        <p><span class="city">Arrival:  <?php echo $row['END_LOC'];?> <?php echo explode(":00",explode(" ",$row["LAND_TIME"])[1])[0]; ?></span> </p>
                     </div>
                     
                 </div>
                 <div class="paidAmount">
-                    <p>*****4568</p>
-                    <p class="price price2"><sup>$</sup>93<sub>USD</sub></p>
+          
+                    <p class="price price2"><sup>$</sup><?php echo $row['price']; ?><sub>USD</sub></p>
 
                 </div>
                 
             </div>
-            <div class="item">
-                <div class="itemImg">
-                    <img src="img/plane.png" alt="">
-                </div>
-                <div class="previous">
-                    <p><span class="prevFlight">Flight 41555 (03/18/2021)</span> 
-                    </p> 
-                    <br>
-                    <div class="depArr">
-                        <p><span class="city">Depature: New York (11:30 AM) </span> <img src="img/arrow.png" alt=""> </p>
-                        <p><span class="city">Arrival: Atlanta (1:00 PM) </span> </p>
-                    </div>
-                    
-                </div>
-                <div class="paidAmount">
-                    <p>*****4568</p>
-                    <p class="price price2"><sup>$</sup>93<sub>USD</sub></p>
-
-                </div>
-                
-            </div>
-            <div class="item">
-                <div class="itemImg">
-                    <img src="img/plane.png" alt="">
-                </div>
-                <div class="previous">
-                    <p><span class="prevFlight">Flight 12188 (12/28/2020)</span> 
-                    </p> 
-                    <br>
-                    <div class="depArr">
-                        <p><span class="city">Depature: New York (11:30 AM) </span> <img src="img/arrow.png" alt=""> </p>
-                        <p><span class="city">Arrival: Atlanta (1:00 PM) </span> </p>
-                    </div>
-                </div>
-                <div class="paidAmount">
-                    <p>*****4568</p>
-                    <p class="price price2"><sup>$</sup>93<sub>USD</sub></p>
-
-                </div>
-                
-            </div>
-           
+            <?php }?>
         </div>
+    
        
     
 </body>

@@ -935,6 +935,7 @@ table {
   margin-bottom: 150px;
   border-radius: 15px;
   transition: .5s;
+  padding-right:80px;
 }
 .accountInfo img{
   width: 70px;
@@ -949,6 +950,7 @@ table {
   border-radius: 25px;
   padding-top: 8px;
   transition: .4s ease-in-out;
+  padding-right:80px;
 }
 .item:hover{
   transform: scale(1.019);

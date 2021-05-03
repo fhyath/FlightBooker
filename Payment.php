@@ -6,7 +6,7 @@ include 'debug.php';
 console_log($_SESSION["class"]);
 $localhost = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){

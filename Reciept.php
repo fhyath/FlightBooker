@@ -5,11 +5,11 @@ include "getCity.php";
 
 <!DOCTYPE html>
 <?php
-var_dump($_SESSION);
+// var_dump($_SESSION);
 include "debug.php";
 $localhost = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
@@ -39,7 +39,7 @@ if( isset($_POST['submit1'] )){
   $insert = "INSERT INTO orders (EMAIL, FLIGHT_ID,PRICE,ORDER_DATE) VALUES('{$_SESSION['user']}','{$_SESSION['flight_id']}','{$_SESSION['price']}','{$currentTime}')";
   console_log($insert);
   
-  echo $update;
+ // echo $update;
   if(mysqli_query($con, $update)){
      // echo "Records added successfully.";
   } else{
