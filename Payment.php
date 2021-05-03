@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <?php
 include 'debug.php';
@@ -42,8 +44,8 @@ $result = $con->query($sql);
       </div>  
       <div class="flightDepart">
         <p class="depart">Depart</p>
-        <p class="destination">Barcelona to Rome</p>
-        <p class="date">April 21, 2021</p>
+        <p class="destination"><?= $_SESSION["start_loc"]?> to <?= $_SESSION["end_loc"]?></p>
+        <p class="date"><?= $_SESSION["depart_time"]?></p>
       </div>
       <table>
         <!-- <caption>Statement Summary</caption> -->
@@ -57,10 +59,10 @@ $result = $con->query($sql);
         </thead>
         <tbody>
           <tr>
-            <td data-label="Account">Flight 2134</td>
-            <td data-label="Due Date">10:30 AM</td>
-            <td data-label="Amount">3:30 PM</td>
-            <td data-label="Period">3 Hours</td>
+            <td data-label="Account">Flight <?= $_SESSION["flight_num"]?></td>
+            <td data-label="Due Date"><?= $_SESSION["depart_time"]?></td>
+            <td data-label="Amount">$<?= $_SESSION["price"]?></td>
+            <td data-label="Period"><?= $_SESSION["depart_time"]?> - <?= $_SESSION["land_time"]?></td>
           </tr>
           
         </tbody>
@@ -104,7 +106,7 @@ $result = $con->query($sql);
                     <label >Payment amount</label>
                     <div class="amount-placeholder">
                         <span>$</span>
-                        <span>500.00</span>
+                        <span><?= $_SESSION["price"]?></span>
                     </div>
                 </div>
                 <div class="formGroup">
@@ -134,7 +136,7 @@ $result = $con->query($sql);
                 <a href="./Reciept.html">
                     <button id="PayButton" type="submit" class="button" onclick="location.replace('./Reciept.html'); console.log('Clicked');">
                         <span class="submit-button-lock"></span>
-                        <span class="align-middle" >Pay $500.00</span>
+                        <span class="align-middle" >Pay $<?= $_SESSION["price"]?></span>
                     </button>
                 </a>
                 
