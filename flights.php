@@ -1,26 +1,16 @@
-
 <?php
 // Start the session
 // Takes the user to the login page if they try to access the flights.php without loggin in 
 include "debug.php";
 session_start();
-<<<<<<< HEAD
-// console_log($_SESSION["OneWay"]);
 if (!$_SESSION['OneWay']) {
-    console_log("inside of if");
-    console_log($_SESSION['OneWay']);
-    header("Location:login.php");
+    header('location:login.php?logintoaccess');
 }
-=======
-// if(!$_SESSION['OneWay']){
-//     header('location:login.php?logintoaccess');
-// }
-// if (!$_SESSION['user']) {
-//     header("location:Profile.html");
+if (!$_SESSION['user']) {
+    header("location:Profile.html");
     // prevent further execution, should there be more code that follows
-// }
-// echo "Welcome ".$_SESSION['user'];
->>>>>>> b32e55a63d7ed1d73a0dd264a634eec242c2ea40
+}
+echo "Welcome " . $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +27,17 @@ if (!$_SESSION['OneWay']) {
 
     <script src="index.js"></script>
     <div class="headerBar">
-        <img src="img/logo.png" alt="">
+        <a href="./login.php">
+            <img src="img/logo.png" alt="">
+        </a>
+        <a href="./Profile.php">
+            <img src="img/user.png" class="user" alt="">
+        </a>
     </div>
     <div class="blur">
-    <!-- <div class="wrapper"> -->
-        <br> <br> 
-        
+        <!-- <div class="wrapper"> -->
+        <br> <br>
+
         <br> <br>
         <div id="search-form">
             <div id="header">
@@ -113,19 +108,13 @@ if (!$_SESSION['OneWay']) {
                 </a>
 
                 <!-- SEARCH BUTTON -->
-            
-            <a href="./flightResults.php">
-                <div id="flight-search" >
-                    <div class="info-box" ></div>
-                        <input type="submit" id="search-flight" value="SEARCH FLIGHTS" onclick="location.replace('./flightResults.php'); "/>
-                    </div>
-                </div>
-            </a>
-                
-            </form> 
-            </div>
-            </section>
+
+
+
+                </form>
         </div>
+        </section>
+    </div>
 
 </body>
 

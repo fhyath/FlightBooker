@@ -4,9 +4,10 @@
 
 <!DOCTYPE html>
 <?php
+var_dump($_SESSION);
 $localhost = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
@@ -29,6 +30,8 @@ if( isset($_POST['submit1'] )){
   $update = "UPDATE seats
                   set $availVar = $availVar-1
                   WHERE SEAT_ID = $num;";
+
+  // $order = "INSERT INTO ORDERS VALUEs(  "
   // echo $update;
   if(mysqli_query($con, $update)){
      // echo "Records added successfully.";
@@ -51,7 +54,7 @@ if( isset($_POST['submit1'] )){
     <body class="recieptbg">
         <div class="headerBar">
             <img src="img/logo.png" alt="">
-            <a href="./Profile.html">
+            <a href="./Profile.php">
               <img src="img/user.png" class="user" alt="">
             </a>
         </div>
@@ -74,8 +77,8 @@ if( isset($_POST['submit1'] )){
                 <!-- Airports -->
                 <div class="airports">
                   <div class="from">
-                    <span>BCA</span>
-                    <span class="date">10:30</span>
+                    <span><?= $_SESSION["start_loc"] ?></span>
+                    <span class="date"><?php $_SESSION["depart_time"]?></span>
                   </div>
                   <i class="fa fa-plane"></i>
                   <div class="to">

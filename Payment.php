@@ -6,7 +6,7 @@ include 'debug.php';
 console_log($_SESSION["class"]);
 $localhost = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "oneway";
 $con = new mysqli($localhost, $username, $password, $dbname);
 if( $con->connect_error){
@@ -27,7 +27,7 @@ if( $con->connect_error){
 <body class="paymentBody">
     <div class="headerBar">
         <img src="img/logo.png" alt="">
-        <a href="./Profile.html">
+        <a href="./Profile.php">
           <img src="img/user.png" class="user" alt="">
         </a>
     </div>
